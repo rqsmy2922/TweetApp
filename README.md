@@ -1,24 +1,10 @@
-# README
+TweetApp(仮)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+・メールアドレスでのユーザー登録
+・ユーザー認証機能
+・140字までの文章投稿
+・画像投稿機能
+・動画投稿機能
+・検索機能
+・ユーザーフォロー機能
+・投稿お気に入り機能
