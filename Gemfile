@@ -37,6 +37,7 @@ gem 'html2slim'         #erbからslimへの変換
 gem 'materialize-sass'  #CSSフレームワーク
 gem 'material_icons'    #アイコン
 gem 'rails-i18n', '~> 5.1' #日本語化
+gem 'sorcery'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -44,6 +45,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'hirb'
+  gem 'hirb-unicode'
 end
 
 group :development do
