@@ -1,0 +1,12 @@
+.user-block.l-user-block.border.t-border
+  .l-user-icon-space.border-user-icon-space.t-border
+    .l-user-icon
+  .l-user-description-sapce
+    .t-text
+      = link_to user_path(user)
+        = user.display_name
+    .t-text-unemphasized
+      = user.name
+  .l-user-follow-buttun-space.border-follow-buttun-space.t-border
+  .l-user-bio-space.border-user-bio-space.t-border
+    = user.bio

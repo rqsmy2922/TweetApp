@@ -1,18 +1,16 @@
-#sessions
-    #sessions-new
-        .login-form
-            - if action_name == "create"
-                .alert.alert-danger メールアドレスまたはパスワードが正しくありません。
-            = form_with(model: @user, url: sessions_path, method: :post) do |f|
-                h2.form-title-login ログイン
-                .input-field
-                    = f.label :email,"メールアドレス", class: "control-label"
-                    = f.text_field :email, class: ".text-form"
-                .input-field
-                    = f.label :password, "パスワード：6文字以上", class: "control-label"
-                    = f.password_field :password, class: ".text-form"
-                = f.submit "ログイン", class: "button", style: "width: 100%"
-                = link_to root_path, class: "signup right" do
-                    | 会員登録する
-                .clear 
+.l-session-form
+    .form.t-form
+        - if action_name == "create"
+            .alert.alert-danger メールアドレスまたはパスワードが正しくありません。
+        = form_with(model: @user, url: sessions_path, method: :post) do |f|
+            h2.form-title.t-form-title ログイン
+            .input-field
+                = f.label :email,"メールアドレス"
+                = f.text_field :email, class: "t-field-text"
+            .input-field
+                = f.label :password, "パスワード：6文字以上"
+                = f.password_field :password, class: "t-field-text"
+            = f.submit "ログイン", class: "button"
+            = link_to '会員登録する', root_path, class: "link-text t-link-text right"
+            .clear 
                 

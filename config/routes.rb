@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
   resource :registrations, only: [:new, :create]
   resource :sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:index, :show, :edit, :update]
+  
+  get 'login' => 'sessions#new'
+  post 'logout' => 'sessions#destroy'
+  
   root to: 'registrations#new' 
 end

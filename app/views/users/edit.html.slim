@@ -1,8 +1,19 @@
-h1 Editing user
-
-== render 'form'
-
-=> link_to 'Show', @user
-'|
-=< link_to 'Back', users_path
-
+- provide(:title, "ユーザー編集")
+.l-left-space
+.l-center-space
+  = render partial: 'shared/error_messages'
+  .form.t-form
+    = form_with(model: @user) do |f|
+      h2.form-title.t-form-title
+        | 設定
+      .input-field
+        = f.label :name, "ユーザーID"
+        = f.text_field :name, class: "t-field-text"
+      .input-field
+        = f.label :display_name, "表示名"
+        = f.text_field :display_name, class: "t-field-text"
+      .input-field
+        = f.label :bio, "プロフィール(140文字)"
+        = f.text_area :bio, class: "t-field-text"
+      = f.submit "送信する", class: "button"
+.l-right-space

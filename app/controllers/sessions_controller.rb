@@ -6,11 +6,16 @@ class SessionsController < ApplicationController
   
   def create
     if @user = login(params[:email], params[:password])
-      redirect_to root_url, notice: "ログインしました"
+      redirect_back_or_to(:users, notice: "ログインしました")
     else
       flash[:alert] = "ログインに失敗しました"
       render :new
     end
+  end
+  
+  def destroy
+    logout
+    redirect_to root_url, notice: "ログアウトしました"
   end
   
   private

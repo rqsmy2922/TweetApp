@@ -1,10 +1,11 @@
-nav
-  .nav-wrapper
-    a.brand-logo href="#"  TweetApp(仮)
-    ul#nav-mobile.right.hide-on-med-and-down
-      li
-        a href="badges.html"  トップ
-      li
-        a href="collapsible.html"  ヘルプ
-      li
-        a href="collapsible.html"  ログイン
+.l-header
+  nav
+    .nav-wrapper
+      a.brand-logo href="/registrations/new"  TweetApp(仮)
+      ul#nav-mobile.right.hide-on-med-and-down
+        li
+          = link_to "トップ", new_registrations_path, method: :get
+        li
+          = link_to "ヘルプ"
+        li
+          = link_to "ログイン", new_sessions_path, method: :get
