@@ -1,8 +1,32 @@
-.col-xs-8#users-content
-   .user-info
-     span.user-name
-       = @user.name
-     span.user-id
-       #{@user.name}
-     .bio
-       = @user.bio
+- provide(:title, "マイページ")
+.l-left-space
+.l-center-space
+  = render 'shared/user_space', user: @user
+  .main-content-field.t-border
+    .main-content-title-space
+      .main-content-title
+      .tab-wrap
+        input#tab01.tab-switch checked="checked" name="tab" type="radio" /
+        label.tab-label#tab04 for="tab01"  Tweet
+        .tab-content
+          - @tweets.each do |t|
+            .tweet-block.t-block.border.t-border
+              .icon-space.border-right.t-border
+                .icon
+              .description-sapce
+                .t-text.inline
+                  = @user.display_name
+                .t-text-unemphasized
+                  = @user.name
+                  | ・
+                  = distance_of_time_in_words_to_now(t.created_at)
+              .follow-buttun-space.border-left.t-border
+              .tweet-space.border-top.t-border
+                = t.content
+        input#tab02.tab-switch name="tab" type="radio" /
+        label.tab-label for="tab02"  フォロー
+        input#tab03.tab-switch name="tab" type="radio" /
+        label.tab-label for="tab03"  フォロワー
+        input#tab04.tab-switch name="tab" type="radio" /
+        label.tab-label#tab06 for="tab03"  お気に入り
+.l-right-space

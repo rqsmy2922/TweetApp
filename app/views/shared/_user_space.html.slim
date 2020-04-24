@@ -1,0 +1,37 @@
+.user-space.t-block.border.t-border
+  .user-icon-space.border-right.t-border
+    .user-icon
+  .user-description-sapce
+    .t-text
+      = user.display_name
+    .t-text-unemphasized
+      = user.name
+  .user-follow-buttun-space.border-left.t-border
+    - if current_user.id == user.id
+      = link_to "プロフィール編集", edit_user_path
+    - else
+      | フォロー
+  .user-bio-space.border-top.border-bottom.t-border
+    = user.bio
+  .user-activity-space.t-border
+    .num-space
+      .t-text-unemphasized
+        |tweet
+      .t-num
+        = link_to user.tweets.count, user_path(params[:id])
+    .num-space
+      .t-text-unemphasized
+        |フォロー
+      .t-num
+        |0
+    .num-space
+      .t-text-unemphasized
+        |フォロワー
+      .t-num
+        |0
+    .num-space
+      .t-text-unemphasized
+        |お気に入り
+      .t-num
+        |0
+  

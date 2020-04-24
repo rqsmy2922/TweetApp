@@ -1,0 +1,23 @@
+.l-header
+  nav
+    .nav-wrapper
+      a.brand-logo  TweetApp(仮)
+      ul#nav-mobile.right.hide-on-med-and-down
+        - if current_user
+          li
+            = link_to "ユーザー一覧", users_path, method: :get
+          li
+            = link_to "ホーム", tweets_path, method: :get
+          li
+            = link_to "マイページ" , current_user  
+          li
+            = link_to "ヘルプ"
+          li
+            = link_to "ログアウト", sessions_path, method: :delete
+        - else
+          li
+            = link_to "トップ", new_registrations_path, method: :get
+          li
+            = link_to "ヘルプ"
+          li
+            = link_to "ログイン", new_sessions_path, method: :get

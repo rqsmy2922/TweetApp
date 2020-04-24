@@ -1,10 +1,9 @@
 - provide(:title, "ユーザー一覧")
 .l-left-space
 .l-center-space
-  .main-content-field.l-main-content-filed
-    .main-content-title-space.l-main-content-title-space
-      .main-content-title
-        | ユーザー一覧
-    = render partial: 'shared/user_block', collection: @users, as: :user
+  .main-content-title-space
+    .main-content-title
+      | ユーザー一覧
+  = render partial: 'shared/user_block', collection: @users, as: :user
 .l-right-space
     
