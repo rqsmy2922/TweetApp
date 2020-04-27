@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
   
-  has_many :tweets, dependent: :destroy 
+  has_many :tweets, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   
   validates :name, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[a-z][a-z0-9]+\z/ }, length: { in: 4..24 }
   validates :display_name, length: { maximum: 20 }

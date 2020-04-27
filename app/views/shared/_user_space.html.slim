@@ -12,13 +12,14 @@
     - else
       | フォロー
   .user-bio-space.border-top.border-bottom.t-border
-    = user.bio
+    .t-break-word
+      = user.bio
   .user-activity-space.t-border
     .num-space
       .t-text-unemphasized
         |tweet
       .t-num
-        = link_to user.tweets.count, user_path(params[:id])
+        = link_to user.tweets.count, user_path(params[:id]), id: "#tab01-t"
     .num-space
       .t-text-unemphasized
         |フォロー
@@ -33,5 +34,6 @@
       .t-text-unemphasized
         |お気に入り
       .t-num
-        |0
-  
+        = link_to user.favorites.count, user_path(params[:id]), id: "#tab04-t"
+        
+= javascript_include_tag 'user_space.coffee'

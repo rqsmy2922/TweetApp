@@ -8,6 +8,10 @@ class TweetsController < ApplicationController
     @tweets = Tweet.all
     @tweet  = Tweet.new
   end
+  
+  def favorites
+    @user = User.find(params[:id])
+  end 
 
   # GET /tweets/1
   # GET /tweets/1.json
