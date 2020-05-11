@@ -4,12 +4,16 @@ ja:
       models:
         user:
           attributes:
-            name:
+            display_name:
               blank: ユーザー名は空ではいけません
-              taken: ユーザー名は既に利用されています
-              invalid: ユーザー名には半角英数字のみ利用できます
-              too_long: ユーザー名は24文字まで利用できます
-              too_short: ユーザー名は最短で4文字必要です
+              too_long: ユーザー名は15文字まで利用できます
+              too_short: ユーザー名は最短で1文字必要です
+            name:
+              blank: ユーザーIDは空ではいけません
+              taken: ユーザーIDは既に利用されています
+              invalid: ユーザーIDには半角英数字のみ利用できます
+              too_long: ユーザーIDは24文字まで利用できます
+              too_short: ユーザーIDは最短で4文字必要です
             email:
               blank: メールアドレスが空です
               taken: メールアドレスが既に使用済みです
@@ -21,7 +25,8 @@ ja:
               blank: 確認用パスワードが空です
               confirmation: 確認用パスワードが一致しません
             bio:
-               too_long: プロフィールは200文字以内でなければなりません
+              too_long: プロフィールは200文字以内でなければなりません
+
   date:
     abbr_day_names:
       - 日
@@ -118,33 +123,6 @@ ja:
         month: 月
         second: 秒
         year: 年
-    errors:
-      format: ! '%{attribute}%{message}'
-      messages:
-        accepted: を受諾してください。
-        blank: を入力してください。
-        present: は入力しないでください。
-        confirmation: と%{attribute}の入力が一致しません。
-        empty: を入力してください。
-        equal_to: は%{count}にしてください。
-        even: は偶数にしてください。
-        exclusion: は予約されています。
-        greater_than: は%{count}より大きい値にしてください。
-        greater_than_or_equal_to: は%{count}以上の値にしてください。
-        inclusion: は一覧にありません。
-        invalid: は不正な値です。
-        less_than: は%{count}より小さい値にしてください。
-        less_than_or_equal_to: は%{count}以下の値にしてください。
-        not_a_number: は数値で入力してください。
-        not_an_integer: は整数で入力してください。
-        odd: は奇数にしてください。
-        record_invalid: バリデーションに失敗しました。 %{errors}
-        restrict_dependent_destroy: ! '%{record}が存在しているので削除できません。'
-        taken: はすでに存在します。
-        too_long: は%{count}文字以内で入力してください。
-        too_short: は%{count}文字以上で入力してください。
-        wrong_length: は%{count}文字で入力してください。
-        other_than: "は%{count}以外の値にしてください。"
     template:
         body: 次の項目を確認してください。
         header:

@@ -3,7 +3,27 @@
 .l-center-space
   .main-content-title-space
     .main-content-title
-      | ユーザー一覧
-  = render partial: 'shared/user_block', collection: @users, as: :user
+      .tab-wrap
+        .tab-label.select ユーザー一覧
+        .tab-content
+          - @users.each do |user|
+            .block.t-block.border.t-border
+              .icon-space.border-right.t-border
+                .icon
+              .description-sapce
+                .t-text
+                  = link_to user_path(user)
+                    = user.display_name
+                .t-text-unemphasized
+                  = "@" + user.name
+              .follow-buttun-space
+                - if current_user.id == user.id
+                  |
+                - elsif user.followed_by? current_user
+                  = button_to "フォロー解除", user_follows_path(user), method: :delete,class: "following-button"
+                - else
+                  = button_to "フォロー", user_follows_path(user), method: :post, class: "follow-button"
+              .bio-space.border-top.t-border
+                = user.bio
 .l-right-space
     

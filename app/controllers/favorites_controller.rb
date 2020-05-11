@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
     if @favorite.save
       redirect_to tweets_url, notice: "お気に入りに登録しました"
     else
-       redirect_to tweets_url, alert: "このツイートはお気に入りに登録できません"
+      redirect_to tweets_url, alert: "このツイートはお気に入りに登録できません"
     end
   end
   

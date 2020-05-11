@@ -7,12 +7,9 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all
     @tweet  = Tweet.new
+    @user = User.find(current_user.id)
   end
   
-  def favorites
-    @user = User.find(params[:id])
-  end 
-
   # GET /tweets/1
   # GET /tweets/1.json
   def show
@@ -34,17 +31,13 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.user = current_user
 
-    respond_to do |format|
-      if @tweet.save
-        format.html { redirect_to tweets_url, notice: 'Tweet was successfully created.' } 
-        format.json { render :show, status: :created, location: @tweet }
-      else
-        @tweets = Tweet.all
-        format.html { render :index }
-        format.json { render json: @tweet.errors, status: :unprocessable_entity }
-      end
+    if @tweet.save
+      redirect_to tweets_url, notice: 'ツイートしました'
+    else
+      redirect_to tweets_url, alert: 'ツイートに失敗しました'
     end
   end
+  
 
   # PATCH/PUT /tweets/1
   # PATCH/PUT /tweets/1.json

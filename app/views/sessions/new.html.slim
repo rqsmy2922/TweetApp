@@ -2,7 +2,7 @@
 .l-center-space
     .form.t-form
         - if action_name == "create"
-            .alert.alert-danger メールアドレスまたはパスワードが正しくありません。
+            .alert.alert-denger メールアドレスまたはパスワードが正しくありません。
         = form_with(model: @user, url: sessions_path, method: :post) do |f|
             h2.form-title.t-form-title ログイン
             .input-field

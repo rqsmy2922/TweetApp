@@ -5,9 +5,13 @@ class SessionsController < ApplicationController
   end
   
   def create
-    if @user = login(params[:email], params[:password])
+    email    = params_user[:email]
+    password = params_user[:password]
+    
+    if login(email, password)
       redirect_to tweets_path, notice: "ログインしました"
     else
+      @user = User.new(email: email)
       flash[:alert] = "ログインに失敗しました"
       render :new
     end

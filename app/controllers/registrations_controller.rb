@@ -9,7 +9,7 @@ class RegistrationsController < ApplicationController
  
     if @user.save
       login(@user.email, @user.password)
-      redirect_to tweets_url
+      redirect_to tweets_path
     else
       render :new
     end
@@ -18,6 +18,6 @@ class RegistrationsController < ApplicationController
   private
  
   def params_user
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:display_name, :name, :email, :password, :password_confirmation)
   end 
 end

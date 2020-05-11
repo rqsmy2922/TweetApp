@@ -1,16 +1,19 @@
 .background
+    - if notice
+        p.alert.alert-info= notice
     .l-left-content
         h1.t-title TweetApp(仮)
         p.description.t-description 
             | このサイトは、動画や写真、つぶやきを投稿できるSNSサイトです。<br>
               まずは右のフォームで会員登録しましょう！
-        - if notice
-            p.alert.alert-info= notice 
-    .l-right-content
         = render partial: 'shared/error_messages'
+    .l-right-content
         .form.t-form-r
             = form_with(model: @user, url: registrations_path, method: :post) do |f|
                 h2.form-title.t-form-title-r 会員登録
+                .input-field
+                    = f.label :display_name, "ユーザー名"
+                    = f.text_field :display_name, class: 't-field-text-r'
                 .input-field
                     = f.label :name, "ユーザーID"
                     = f.text_field :name, class: 't-field-text-r'

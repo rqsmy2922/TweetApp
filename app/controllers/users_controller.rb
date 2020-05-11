@@ -11,12 +11,10 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @favorites = Favorite.where(user_id: @user.id)
+    @users = User.all
+    @tweet = Tweet.find(params[:id])
+    @favorites = Favorite.where(user_id: @user.id).order(created_at: "DESC")
   end
-  
-  def favorites
-    @user = User.find(params[:id])
-  end 
 
   # GET /users/new
   def new

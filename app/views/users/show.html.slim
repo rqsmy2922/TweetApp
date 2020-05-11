@@ -1,13 +1,57 @@
 - provide(:title, "マイページ")
 .l-left-space
 .l-center-space
-  = render 'shared/user_space', user: @user
+  .user-space.t-block.border.t-border
+    .user-icon-space.border-right.t-border
+      .user-icon
+    .user-description-sapce
+      .t-text
+        = @user.display_name
+      .t-text-unemphasized
+        = "@" + @user.name
+    .user-follow-buttun-space
+      - if current_user.id == @user.id
+        = button_to "プロフィール編集", edit_user_path, method: :get, class: "follow-button"
+      - elsif @user.followed_by? current_user
+        = button_to "フォロー解除", user_follows_path(@user), method: :delete, class: "following-button"
+      - else
+        = button_to "フォロー", user_follows_path(@user), method: :post, class: "follow-button" 
+    .user-bio-space.border-top.border-bottom.t-border
+      .t-break-word
+        = @user.bio
+    .user-activity-space.t-border
+      .num-space
+        .t-text-unemphasized
+          |tweet
+        .t-num
+          a href="/users/#{@user.id}#tab1"
+            = @user.tweets.count
+      .num-space
+        .t-text-unemphasized
+          |フォロー
+        .t-num
+          a href="/users/#{@user.id}#tab2" 
+            = @user.follows.count
+      .num-space
+        .t-text-unemphasized
+          |フォロワー
+        .t-num
+          a href="/users/#{@user.id}#tab3"
+            = @user.followers.count
+      .num-space
+        .t-text-unemphasized
+          |お気に入り
+        .t-num
+          a href="/users/#{@user.id}#tab4"
+            = @user.favorites.count
   .main-content-field.t-border
     .main-content-title-space
-      .main-content-title
       .tab-wrap
-        input#tab01.tab-switch checked="checked" name="tab" type="radio" /
-        label.tab-label#tab05 for="tab01"  Tweet
+        .tab-label.select.tab-l id="tab1" Tweet
+        .tab-label id="tab2" フォロー
+        .tab-label id="tab3" フォロワー
+        .tab-label.tab-r id="tab4" お気に入り
+        .content-space
         .tab-content
           - @user.tweets.each do |t|
             .tweet-block.t-block.border.t-border
@@ -17,20 +61,71 @@
                 .t-text.inline
                   = @user.display_name
                 .t-text-unemphasized
-                  = @user.name
+                  = "@" + @user.name
                   | ・
                   = distance_of_time_in_words_to_now(t.created_at)
-              .follow-buttun-space.border-left.t-border
+              .follow-buttun-space
+                - if @user == current_user
+                  |
+                - elsif @user.followed_by? current_user
+                  = button_to "フォロー解除", user_follows_path(@user), method: :delete, class: "following-button"
+                - else
+                  = button_to "フォロー", user_follows_path(@user), method: :post, class: "follow-button"
               .tweet-space.border-top.t-border
                 .tweet
                   = t.content
-        input#tab02.tab-switch name="tab" type="radio" /
-        label.tab-label for="tab02"  フォロー
-        input#tab03.tab-switch name="tab" type="radio" /
-        label.tab-label for="tab03"  フォロワー
-        input#tab04.tab-switch name="tab" type="radio" /
-        label.tab-label#tab07 for="tab04"  お気に入り
-        .tab-content
+              .favotite-space
+                - if t.favorited_by? current_user
+                  = link_to "favorite", tweet_favorites_path(t), method: :delete,class: "material-icons"
+                - else
+                  = link_to "favorite_border", tweet_favorites_path(t), method: :post, class: "material-icons"
+        .tab-content.hide
+          - if @user.inverse_followers.empty?
+            | フォローしてみましょう
+          - else
+            - @user.inverse_followers.each do |f|
+              .block.t-block.border.t-border
+                .icon-space.border-right.t-border
+                  .user-icon
+                .description-sapce
+                  .t-text
+                    = link_to f.display_name, user_path(f.id)
+                  .t-text-unemphasized
+                    = "@" + f.name
+                .follow-buttun-space
+                  - if f == current_user
+                    |
+                  - elsif current_user.followed_by? f
+                    = button_to "フォロー解除", user_follows_path(f), method: :delete, class: "following-button"
+                  - else
+                    = button_to "フォロー", user_follows_path(f), method: :post, class: "follow-button"
+                .bio-space.border-top.border-bottom.t-border
+                  .t-break-word
+                    = f.bio
+        .tab-content.hide
+          - if @user.followers.empty?
+            | まだフォロワーがいません
+          - else
+            - @user.followers.each do |f|
+              .block.t-block.border.t-border
+                .icon-space.border-right.t-border
+                  .user-icon
+                .description-sapce
+                  .t-text
+                    = link_to f.display_name, user_path(f.id)
+                  .t-text-unemphasized
+                    = "@" + f.name
+                .follow-buttun-space
+                  - if f == current_user
+                    |
+                  - elsif f.followed_by? current_user
+                    = button_to "フォロー解除", user_follows_path(f), method: :delete, class: "following-button"
+                  - else
+                    = button_to "フォロー", user_follows_path(f), method: :post, class: "follow-button"
+                .bio-space.border-top.border-bottom.t-border
+                  .t-break-word
+                    = f.bio
+        .tab-content.hide
           - if @user.favorites.empty?
             | まだお気に入りに登録されたツイートはありません
           - else
@@ -42,15 +137,25 @@
                   .icon
                 .description-sapce
                   .t-text.inline
-                    = link_to( user.display_name, "/users/#{user.id}" )
+                    = link_to user.display_name, user_path(user.id)
                   .t-text-unemphasized
-                    = user.name
+                    = "@" + user.name
                     | ・
-                    = distance_of_time_in_words_to_now(f.created_at)
-                .follow-buttun-space.border-left.t-border
+                    = distance_of_time_in_words_to_now(tweet.created_at)
+                .follow-buttun-space
+                  - if user == current_user
+                    |
+                  - elsif user.followed_by?  current_user
+                    = button_to "フォロー解除", user_follows_path(user), method: :delete, class: "following-button"
+                  - else
+                    = button_to "フォロー", user_follows_path(user), method: :post, class: "follow-button"
                 .tweet-space.border-top.t-border
                   .tweet
                     = f.tweet.content
+                - if tweet.favorited_by? current_user
+                  = link_to "favorite", tweet_favorites_path(tweet), method: :delete,class: "material-icons"
+                - else
+                  = link_to "favorite_border", tweet_favorites_path(tweet), method: :post, class: "material-icons"
 .l-right-space
 
-= javascript_include_tag 'user_space.coffee'
+= javascript_include_tag 'tab' 
