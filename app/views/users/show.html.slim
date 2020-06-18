@@ -1,161 +1,216 @@
 - provide(:title, "マイページ")
 .l-left-space
 .l-center-space
-  .user-space.t-block.border.t-border
-    .user-icon-space.border-right.t-border
-      .user-icon
-    .user-description-sapce
-      .t-text
-        = @user.display_name
-      .t-text-unemphasized
-        = "@" + @user.name
-    .user-follow-buttun-space
-      - if current_user.id == @user.id
-        = button_to "プロフィール編集", edit_user_path, method: :get, class: "follow-button"
-      - elsif @user.followed_by? current_user
-        = button_to "フォロー解除", user_follows_path(@user), method: :delete, class: "following-button"
-      - else
-        = button_to "フォロー", user_follows_path(@user), method: :post, class: "follow-button" 
-    .user-bio-space.border-top.border-bottom.t-border
-      .t-break-word
-        = @user.bio
-    .user-activity-space.t-border
-      .num-space
+  .user-space-column.t-block.border.t-border
+    .user-space-row
+      .user-icon-space
+        = gravatar_for @user
+      .user-main-space
+        .user-top-space
+          .user-name-space
+            .t-text
+              = @user.display_name
+            .t-text-unemphasized
+              = "@" + @user.name
+          .user-buttun-space
+            - if current_user.name == @user.name
+              = button_to "プロフィール編集", edit_user_path(@user.name), method: :get, class: "follow-button"
+            - elsif @user.followed_by? current_user
+              = button_to "フォロー解除", user_follows_path(@user), method: :delete, data: {confirm: "フォローを解除しますか？"}, class: "following-button"
+            - else
+              = button_to "フォロー", user_follows_path(@user), method: :post, class: "follow-button" 
+        .user-bottom-space
+          .content-text
+            = @user.bio
+    .user-activity-space
+      .user-num-space
         .t-text-unemphasized
           |tweet
         .t-num
-          a href="/users/#{@user.id}#tab1"
+          a href="/users/#{@user.name}#tab1"
             = @user.tweets.count
-      .num-space
+      .user-num-space
         .t-text-unemphasized
           |フォロー
         .t-num
-          a href="/users/#{@user.id}#tab2" 
+          a href="/users/#{@user.name}#tab2" 
             = @user.follows.count
-      .num-space
+      .user-num-space
         .t-text-unemphasized
           |フォロワー
         .t-num
-          a href="/users/#{@user.id}#tab3"
+          a href="/users/#{@user.name}#tab3"
             = @user.followers.count
-      .num-space
+      .user-num-space
         .t-text-unemphasized
           |お気に入り
         .t-num
-          a href="/users/#{@user.id}#tab4"
+          a href="/users/#{@user.name}#tab4"
             = @user.favorites.count
-  .main-content-field.t-border
+  .main-content-field
     .main-content-title-space
       .tab-wrap
         .tab-label.select.tab-l id="tab1" Tweet
         .tab-label id="tab2" フォロー
         .tab-label id="tab3" フォロワー
         .tab-label.tab-r id="tab4" お気に入り
-        .content-space
-        .tab-content
-          - @user.tweets.each do |t|
-            .tweet-block.t-block.border.t-border
-              .icon-space.border-right.t-border
-                .icon
-              .description-sapce
-                .t-text.inline
-                  = @user.display_name
-                .t-text-unemphasized
-                  = "@" + @user.name
-                  | ・
-                  = distance_of_time_in_words_to_now(t.created_at)
-              .follow-buttun-space
-                - if @user == current_user
-                  |
-                - elsif @user.followed_by? current_user
-                  = button_to "フォロー解除", user_follows_path(@user), method: :delete, class: "following-button"
-                - else
-                  = button_to "フォロー", user_follows_path(@user), method: :post, class: "follow-button"
-              .tweet-space.border-top.t-border
-                .tweet
-                  = t.content
-              .favotite-space
-                - if t.favorited_by? current_user
-                  = link_to "favorite", tweet_favorites_path(t), method: :delete,class: "material-icons"
-                - else
-                  = link_to "favorite_border", tweet_favorites_path(t), method: :post, class: "material-icons"
-        .tab-content.hide
+        .search_wap.select#tab1
+            = search_form_for @search, url: user_path(@user) do |f|
+              = f.text_field :content_cont , placeholder: "ツイートを検索"
+                = button_tag "", :name => nil, class: "search__button"
+                  .icon_wap
+                    i.material-icons search
+        .search_wap#tab2
+            = search_form_for @search2, as: :q2, url: user_path(@user) do |f|
+              = f.text_field :display_name_or_name_or_bio_cont, placeholder: "フォローを検索"
+                = button_tag "", :name => nil, class: "search__button"
+                  .icon_wap
+                    i.material-icons search
+        .search_wap#tab3
+            = search_form_for @search3, as: :q3, url: user_path(@user) do |f|
+              = f.text_field :display_name_or_name_or_bio_cont, placeholder: "フォロワーを検索"
+                = button_tag "", :name => nil, class: "search__button"
+                  .icon_wap
+                    i.material-icons search
+        .search_wap#tab4
+            = search_form_for @search4, as: :q4, url: user_path(@user) do |f|
+              = f.text_field :tweet_content_cont , placeholder: "お気に入りを検索"
+                = button_tag "", :name => nil, class: "search__button"
+                  .icon_wap
+                    i.material-icons search
+        .tab-content.select#tab1
+          - @tweets.each do |t|
+            .block.border.t-border
+              .icon-space
+                = gravatar_for @user
+              .main-space
+                .top-space
+                  .name-space
+                    .t-text
+                      = @user.display_name
+                    .t-text-unemphasized
+                      = "@" + @user.name
+                      | ・
+                      = distance_of_time_in_words_to_now(t.created_at)
+                  .follow-buttun-space
+                    - if @user == current_user
+                      |
+                    - elsif @user.followed_by? current_user
+                      = button_to "フォロー解除", user_follows_path(@user), method: :delete, data: {confirm: "フォローを解除しますか？"}, class: "following-button"
+                    - else
+                      = button_to "フォロー", user_follows_path(@user), method: :post, class: "follow-button"
+                .bottom-space
+                  .content-text
+                    = t.content
+                .image-space
+                  - t.images.each do |image|
+                    = link_to image.url, 'data-lightbox': image do
+                      = image_tag(image.url, class: "image1") if t.images?
+                .option-space
+                  .favotite-space
+                    - if t.favorited_by? current_user
+                      = link_to "favorite", tweet_favorites_path(t), method: :delete,class: "material-icons"
+                    - else
+                      = link_to "favorite_border", tweet_favorites_path(t), method: :post, class: "material-icons"
+                  .delete-space
+                    - if t.user_id == current_user.id
+                      = link_to "delete", tweet_path(t), method: :delete, data: {confirm: "ツイートを削除しますか？"}, class: "material-icons"
+                    - else
+                      |
+        .tab-content#tab2
           - if @user.inverse_followers.empty?
             | フォローしてみましょう
           - else
-            - @user.inverse_followers.each do |f|
-              .block.t-block.border.t-border
-                .icon-space.border-right.t-border
-                  .user-icon
-                .description-sapce
-                  .t-text
-                    = link_to f.display_name, user_path(f.id)
-                  .t-text-unemphasized
-                    = "@" + f.name
-                .follow-buttun-space
-                  - if f == current_user
-                    |
-                  - elsif current_user.followed_by? f
-                    = button_to "フォロー解除", user_follows_path(f), method: :delete, class: "following-button"
-                  - else
-                    = button_to "フォロー", user_follows_path(f), method: :post, class: "follow-button"
-                .bio-space.border-top.border-bottom.t-border
-                  .t-break-word
-                    = f.bio
-        .tab-content.hide
+            - @inverse_followers.each do |f|
+              .block.border.t-border
+                .icon-space
+                  = gravatar_for f
+                .main-space
+                  .top-space
+                    .name-space
+                      .t-text
+                        = link_to f.display_name, user_path(f.name)
+                      .t-text-unemphasized
+                        = "@" + f.name
+                    .follow-buttun-space
+                      - if f == current_user
+                        |
+                      - elsif f.followed_by? current_user
+                        = button_to "フォロー解除", user_follows_path(f), method: :delete, data: {confirm: "フォローを解除しますか？"}, class: "following-button"
+                      - else
+                        = button_to "フォロー", user_follows_path(f), method: :post, class: "follow-button"
+                  .bottom-space
+                    .content-text
+                      = f.bio
+        .tab-content#tab3
           - if @user.followers.empty?
             | まだフォロワーがいません
           - else
-            - @user.followers.each do |f|
-              .block.t-block.border.t-border
-                .icon-space.border-right.t-border
-                  .user-icon
-                .description-sapce
-                  .t-text
-                    = link_to f.display_name, user_path(f.id)
-                  .t-text-unemphasized
-                    = "@" + f.name
-                .follow-buttun-space
-                  - if f == current_user
-                    |
-                  - elsif f.followed_by? current_user
-                    = button_to "フォロー解除", user_follows_path(f), method: :delete, class: "following-button"
-                  - else
-                    = button_to "フォロー", user_follows_path(f), method: :post, class: "follow-button"
-                .bio-space.border-top.border-bottom.t-border
-                  .t-break-word
-                    = f.bio
-        .tab-content.hide
+            - @followers.each do |f|
+              .block.border.t-border
+                .icon-space
+                  = gravatar_for f
+                .main-space
+                  .top-space
+                    .name-space
+                      .t-text
+                        = link_to f.display_name, user_path(f.name)
+                      .t-text-unemphasized
+                        = "@" + f.name
+                    .follow-buttun-space
+                      - if f == current_user
+                        |
+                      - elsif f.followed_by? current_user
+                        = button_to "フォロー解除", user_follows_path(f), method: :delete, data: {confirm: "フォローを解除しますか？"}, class: "following-button"
+                      - else
+                        = button_to "フォロー", user_follows_path(f), method: :post, class: "follow-button"
+                  .bottom-space
+                    .content-text
+                      = f.bio
+        .tab-content#tab4
           - if @user.favorites.empty?
             | まだお気に入りに登録されたツイートはありません
           - else
             - @favorites.each do |f|
-              - tweet = Tweet.find_by(id: f.tweet_id)
-              - user = User.find_by(id: tweet.user_id)
-              .tweet-block.t-block.border.t-border
-                .icon-space.border-right.t-border
-                  .icon
-                .description-sapce
-                  .t-text.inline
-                    = link_to user.display_name, user_path(user.id)
-                  .t-text-unemphasized
-                    = "@" + user.name
-                    | ・
-                    = distance_of_time_in_words_to_now(tweet.created_at)
-                .follow-buttun-space
-                  - if user == current_user
-                    |
-                  - elsif user.followed_by?  current_user
-                    = button_to "フォロー解除", user_follows_path(user), method: :delete, class: "following-button"
-                  - else
-                    = button_to "フォロー", user_follows_path(user), method: :post, class: "follow-button"
-                .tweet-space.border-top.t-border
-                  .tweet
-                    = f.tweet.content
-                - if tweet.favorited_by? current_user
-                  = link_to "favorite", tweet_favorites_path(tweet), method: :delete,class: "material-icons"
-                - else
-                  = link_to "favorite_border", tweet_favorites_path(tweet), method: :post, class: "material-icons"
+              - user = User.find_by(id: f.tweet.user_id)
+              .block.border.t-border
+                .icon-space
+                  = gravatar_for user
+                .main-space
+                  .top-space
+                    .name-space
+                      .t-text
+                        = link_to user.display_name, user_path(user.name)
+                      .t-text-unemphasized
+                        = "@" + user.name
+                        | ・
+                        = distance_of_time_in_words_to_now(f.tweet.created_at)
+                    .follow-buttun-space
+                      - if user == current_user
+                        |
+                      - elsif user.followed_by?  current_user
+                        = button_to "フォロー解除", user_follows_path(user), method: :delete, data: {confirm: "フォローを解除しますか？"}, class: "following-button"
+                      - else
+                        = button_to "フォロー", user_follows_path(user), method: :post, class: "follow-button"
+                  .bottom-space
+                    .content-text
+                      = f.tweet.content
+                  .image-space
+                    - f.tweet.images.each do |image|
+                      =  link_to image.url, 'data-lightbox': image do
+                        = image_tag(image.url, class: "image1") if f.tweet.images?
+                  .option-space
+                    .favotite-space    
+                      - if f.tweet.favorited_by? current_user
+                        = link_to "favorite", tweet_favorites_path(f.tweet), method: :delete,class: "material-icons"
+                      - else
+                        = link_to "favorite_border", tweet_favorites_path(f.tweet), method: :post, class: "material-icons"
+                    .delete-space
+                      - if f.tweet.user_id == current_user.id
+                        = link_to "delete", tweet_path(f.tweet), method: :delete, data: {confirm: "ツイートを削除しますか？"}, class: "material-icons"
+                      - else
+                        |
 .l-right-space
 
-= javascript_include_tag 'tab' 
+= javascript_include_tag 'tab2'
+= javascript_include_tag 'image'

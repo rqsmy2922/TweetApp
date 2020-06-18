@@ -1,0 +1,6 @@
+.search_wap
+  = search_form_for @search, url: tweets_path do |f|
+    = f.text_field :content_cont , placeholder: "ツイートを検索"
+    = button_tag "", :name => nil, class: "search__button"
+      .icon_wap
+        i.material-icons search

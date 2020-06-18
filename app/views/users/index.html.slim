@@ -1,29 +1,39 @@
 - provide(:title, "ユーザー一覧")
 .l-left-space
 .l-center-space
-  .main-content-title-space
-    .main-content-title
-      .tab-wrap
-        .tab-label.select ユーザー一覧
-        .tab-content
-          - @users.each do |user|
-            .block.t-block.border.t-border
-              .icon-space.border-right.t-border
-                .icon
-              .description-sapce
-                .t-text
-                  = link_to user_path(user)
-                    = user.display_name
-                .t-text-unemphasized
-                  = "@" + user.name
-              .follow-buttun-space
-                - if current_user.id == user.id
-                  |
-                - elsif user.followed_by? current_user
-                  = button_to "フォロー解除", user_follows_path(user), method: :delete,class: "following-button"
-                - else
-                  = button_to "フォロー", user_follows_path(user), method: :post, class: "follow-button"
-              .bio-space.border-top.t-border
-                = user.bio
+  .main-content-field
+    .main-content-title-space
+      .main-content-title
+        .tab-wrap
+          .tab-label.select ユーザー一覧
+          .search_wap.select#tab1
+            = search_form_for @search, url: users_path do |f|
+              = f.text_field :display_name_or_name_or_bio_cont , placeholder: "ユーザーを検索"
+                = button_tag "", :name => nil, class: "search__button"
+                  .icon_wap
+                    i.material-icons search
+          .tab-content.select
+            - @users.each do |user|
+              .block.border.t-border
+                .icon-space
+                  = gravatar_for user
+                .main-space
+                  .top-space
+                    .name-space
+                      .t-text
+                        = link_to user_path(user.name)
+                          = user.display_name
+                      .t-text-unemphasized
+                        = "@" +user.name
+                    .follow-buttun-space
+                      - if current_user.id == user.id
+                        |
+                      - elsif user.followed_by? current_user
+                        = button_to "フォロー解除", user_follows_path(user), method: :delete, data: {confirm: "フォローを解除しますか？"}, class: "following-button"
+                      - else
+                        = button_to "フォロー", user_follows_path(user), method: :post, class: "follow-button"
+                  .bottom-space
+                    .content-text
+                      = user.bio
 .l-right-space
     

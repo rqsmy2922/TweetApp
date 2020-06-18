@@ -1,12 +1,151 @@
 .form
   width: 100%
-  padding: 40px 32px
-  border: 1px solid
+  padding: 20px 32px
+  border: 1px solid #fff
   border-radius: 6px
-  text-align: center
-  
+  background-color: rgba(255, 255, 255, 0.7)
+  textarea
+    resize: none
+    width: 100%
+    height: 100px
+    
 .form-title
   margin: 0px 0px 16px 0px
-  border-bottom: 1px solid 
+  border-bottom: 1px solid #000
   padding-bottom: 8px
+  text-align: center
   
+.button-space
+  margin-top: 40px
+
+.message
+  color: red
+
+.link-block
+  display: block
+  height: 30px
+  margin-top: 20px
+  text-align: right
+
+$red: #F44336
+$blue: #2196F3
+$green: #4CAF50
+
+body
+  margin: 0
+  font-family: 'Open Sans', sans-serif
+
+input
+  outline: 0
+  border: 0
+  display: block
+
+.textbox
+  display: block
+  position: relative
+  max-width: 80%
+  height: 48px
+  margin-bottom: 20px
+  input[type="text"],
+  input[type="url"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="color"],
+  input[type="email"],
+  input[type="password"]
+    box-sizing: border-box 
+    width: 260px
+    height: 50px
+    font-size: 16px
+    //background #fff
+    background: rgba(0,0,0,0)
+    color: rgba(0,0,0,.67)
+    //box-shadow 0 -16px white
+    border-bottom: 1px solid rgba(0,0,0,.4)
+    &:disabled
+      ~ label
+        color: rgba(0,0,0,.4)
+    ~ label
+      font-size: 1.2em
+      color: rgba(0,0,0,.67)
+      display: block
+      position: absolute
+      top: 24px
+      pointer-events: none
+      transition: all .2s
+    ~ .error
+      position: absolute
+      bottom: -10px
+      color: rgba(0,0,0,0)
+      font-size: .8em
+      pointer-events: none
+      transition: all .2s
+    &:not([value=""])
+      ~ label
+        font-size: .8em
+        top: -4px
+    &:focus
+      ~ label
+        font-size: .8em
+        top: -4px
+      ~ .error
+        &:before
+          width: 260px
+          margin: 0
+    &:invalid:not(:focus):not([value=""])
+      border-bottom: 1px solid $red
+      ~ .error
+        color: $red
+    ~ .info
+      position: absolute
+      top: 16px
+      left: 260px
+      width: 24px
+      height: 24px
+      margin: 8px -16px 8px 8px
+      padding: 0 16px 0 0
+      border-radius: 100%
+      color: rgba(0,0,0,.67)
+      cursor: pointer
+      transition: all .2s
+      .tooltip
+        width: auto
+        position: absolute
+        top: -6px
+        right: 24px
+        transform: translateX(100%) scale(.8)
+        background: rgba(0,0,0,.9)
+        color: rgba(255,255,255,.9)
+        padding: 8px
+        border-radius: 2px
+        white-space: pre
+        font-size: .8em
+        visibility: hidden
+        opacity: 0
+        transition: all .2s
+        &:before
+          content: ''
+          display: block
+          position: absolute
+          top: 9px
+          left: -10px
+          border-style: solid
+          border-width: 8px 10px 8px 0
+          border-color: transparent rgba(0,0,0,.9) transparent transparent
+          z-index: -1
+      &:hover
+        color: rgba(0,0,0,.9)
+        .tooltip, .tooltip:hover
+          visibility: visible
+          opacity: 1
+          right: 0
+          transform: translateX(100%)
+    &:disabled
+      ~ .info
+        color: rgba(0,0,0,.4)
+        .tooltip
+          background: rgba(0,0,0,.67)
+          &:before
+            border-color: transparent rgba(0,0,0,.67) transparent transparent
+        &:hover
+          color: rgba(0,0,0,.67)

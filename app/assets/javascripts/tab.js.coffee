@@ -1,11 +1,21 @@
 $ ->
-  $('.tab-label').click ->
-    index = $('.tab-wrap div').index(this)
-    $('.tab-wrap div').removeClass 'select'
-    $('.tab-content').addClass 'hide'
-    $('.tab-content').eq(index).removeClass 'hide'
-    $(this).addClass 'select'
+  CookieName = Cookies.get('contents')
+  if CookieName != null
+    $ ->
+      $('.tab-label').removeClass 'select'
+      $('.tab-content').removeClass 'select'
+      $('.search_wap').removeClass 'select'
+      $('.tab-wrap div#' + CookieName).addClass 'select'
 
+$ ->
+  $('.tab-label').click ->
+    tabhash = $(this).attr('id')
+    $('.tab-label').removeClass 'select'
+    $('.tab-content').removeClass 'select'
+    $('.search_wap').removeClass 'select'
+    $('.tab-wrap div#' + tabhash).addClass 'select'
+    Cookies.set 'contents', $(this).attr('id'), secure: true, expires: 1
+    
 $ ->
   hash = location.hash
   hash = (hash.match(/^#tab\d+$/) or [])[0]
@@ -13,8 +23,11 @@ $ ->
     tabname = hash.slice(1)
   else
     tabname = 'tab1'
-  $('.tab-wrap div').removeClass 'select'
-  $('.tab-content').addClass 'hide'
-  tabno = $('.tab-wrap div#' + tabname).index()
-  $('.tab-content').eq(tabno).removeClass 'hide'
-  $('.tab-wrap div').eq(tabno).addClass 'select'
+  $('.tab-label').removeClass 'select'
+  $('.tab-content').removeClass 'select'
+  $('.search_wap').removeClass 'select'
+  tabno = $('.tab-label#' + tabname).index()
+  $('.tab-content').eq(tabno).addClass 'select'
+  $('.tab-label').eq(tabno).addClass 'select'
+  $('.search_wap').eq(tabno).addClass 'select'
+  

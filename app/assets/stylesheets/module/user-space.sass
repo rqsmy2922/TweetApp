@@ -1,30 +1,62 @@
-.user-space
+.user-space-column
+  display: flex
+  flex-direction: column
   width: 792px
   height: 170px
   margin-bottom: 8px
+  padding: 4px
   border-radius: 6px
-  .user-icon-space
-    float: left
-    width: 10%
-    height: 30%
-  .user-icon
-  .user-description-sapce
-    float: left
-    width: 60%
-    height: 30%
-  .user-follow-buttun-space
-    float: right
-    width: 30%
-    height: 30%
-  .user-bio-space
-    float: left
-    width: 100%
-    height: 40%
+  background-color: #fff
+  .user-space-row
+    display: flex
+    flex-direction: row
+    .user-icon-space
+      position: relative
+      width: 114px
+      align-items: stretch
+      .gravatar
+        width: 100px
+        height: 100px
+        background-color: #bdbdbd
+        border: solid, 1px
+        border-color: #000
+        border-radius: 50%
+    .user-main-space
+      display: flex
+      position: relative
+      flex-direction: column
+      width: 672px
+      .user-top-space
+        display: flex
+        position: relative
+        flex-direction: row
+        width: 672px
+        .user-name-space
+          position: relative
+          white-space: nowrap
+          overflow: hidden
+          text-overflow: ellipsis
+          width: 469px
+          height: 40px
+        .user-buttun-space
+          position: relative
+          width: 203px
+          height: 40px
+      .user-bottom-space
+        display: flex
+        position: relative
+        width: 672px
+        .content-text
+          font-size: 15px
+          word-break: break-word
   .user-activity-space
-    float: left
-    width: 100%
-    height: 30%
-    .num-space
-      display: inline-block
-      text-align: center
-      width: 10%
+    display: flex
+    width: 391px
+    flex-direction: row
+    justify-content: space-around
+    align-items: flex-end
+    text-align: center
+    margin-top: 4px
+    .user-num-space
+      
+        

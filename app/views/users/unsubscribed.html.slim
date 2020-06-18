@@ -1,0 +1,24 @@
+- provide(:title, "退会")
+.l-center-space
+  .guides
+    h2.guides-title
+      = current_user.name
+      |様の退会手続き
+    .guides-explanation
+      .guides-explanation-title
+        h2
+          strong
+            |最終確認
+      .guides-explanation-text
+          h3
+            |下記の
+            strong
+              |「退会する」
+            |のボタンを押すと
+            |最終確認のポップアップが表示されます。<br>
+            |ポップアップのOKを押すと退会手続きは完了され、以降
+            strong
+              |ユーザーの復元は出来かねます
+            |のでご注意ください。
+    .unsubscribed
+      = button_to '退会する', user_path, method: :delete, data: {confirm: "一度退会をするとユーザーの復元は行なえません。本当に退会なさいますか？"}, class: "button"

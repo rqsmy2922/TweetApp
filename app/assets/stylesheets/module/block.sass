@@ -1,59 +1,77 @@
 .block
+  display: flex
+  position: relative
+  flex-direction: row
+  flex-wrap: wrap
   width: 720px
-  height: 125.346px
   margin-bottom: 8px
+  padding: 4px
   border-radius: 6px
+  align-items: stretch
   .icon-space
-    float: left
-    width: 10%
-    height: 40%
-  .icon
-  .description-sapce
-    float: left
-    width: 60%
-    height: 40%
-  .follow-buttun-space
-    float: right
-    width: 30%
-    height: 40%
-  .bio-space
-    float: left
-    width: 100%
-    height: 60%
-
-
-.tweet-block
-  width: 720px
-  height: 125.346px
-  margin-bottom: 8px
-  .icon-space
-    float: left
-    width: 10%
-    height: 30%
-  .icon
-  .description-sapce
-    float: left
-    width: 60%
-    height: 30%
-    .inline
-      display: inline
-    .time
+    position: relative
+    width: 60px
+    align-items: stretch
+    .gravatar
+      width: 56px
+      height: 56px
+      border: solid, 1px
+      border-color: #000
+      border-radius: 50%
+  .main-space
+    display: flex
+    position: relative
+    flex-direction: column
+    .top-space
+      display: flex
       position: relative
-      top: 0
-      right: 0
-  .follow-buttun-space
-    float: right
-    width: 30%
-    height: 30%
-  .tweet-space
-    float: left
-    width: 100%
-    height: 50%
-    .tweet
-      word-wrap: break-word
-      font-size: 15px
-  .favotite-space
-    float: left
-    width: 100%
-    height: 20%
+      flex-direction: row
+      width: 650px
+      .name-space
+        position: relative
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+        width: 440px
+        height: 40px
+      .follow-buttun-space
+        position: relative
+        width: 210px
+        height: 40px
+    .bottom-space
+      display: flex
+      position: relative
+      width: 650px
+      min-height: 40px
+      .content-text
+        font-size: 15px
+        word-break: break-word
+    .image-space
+      display: flex
+      position: relative
+      flex-direction: column
+      flex-wrap: wrap
+      width: 500px
+      max-height: 312.5px
+      .image1
+        width: 500px
+        height: 312.5px
+        object-fit: cover
+      .image2
+        width: 250px
+        height: 312.5px
+        object-fit: cover
+      .image3
+        width: 250px
+        height: 156.25px
+        object-fit: cover
+    .option-space
+      display: flex
+      position: relative
+      flex-direction: row
+      justify-content: flex-end
+      .favotite-space
+        width: 50px
+      .delete-space
+        width: 50px
     

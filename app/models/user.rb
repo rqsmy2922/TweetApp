@@ -4,10 +4,10 @@ class User < ApplicationRecord
   has_many :tweets, dependent: :destroy
   has_many :favorites, dependent: :destroy
   
-  has_many :follows, foreign_key: :follower_id
-  has_many :inverse_followers, through: :follows
-  has_many :inverse_follows, foreign_key: :inverse_follower_id, class_name: "Follow"
-  has_many :followers, through: :inverse_follows 
+  has_many :follows, foreign_key: :follower_id, dependent: :destroy
+  has_many :inverse_followers, through: :follows, dependent: :destroy
+  has_many :inverse_follows, foreign_key: :inverse_follower_id, dependent: :destroy, class_name: "Follow"
+  has_many :followers, through: :inverse_follows, dependent: :destroy
   
   validates :name, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[a-z][a-z0-9]+\z/ }, length: { in: 4..24 }
   validates :display_name, presence: true, length: { in: 1..15 }
@@ -22,5 +22,5 @@ class User < ApplicationRecord
   
   def favorited_by? user
     favorites.where(user_id: user.id).exists?
-  end 
+  end
 end

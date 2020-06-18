@@ -1,0 +1,13 @@
+- provide(:title, "ユーザー認証")
+.l-left-space
+.l-center-space
+  .form.t-form
+    = form_with(model: @user, url: activates_create_path, method: :get) do |f|
+      h2.form-title.t-form-title 
+        |ユーザー認証
+      .input-field
+        = f.label :email,"メールアドレス"
+        = f.text_field :email, class: "t-field-text"
+      .button-space
+        = f.submit "ユーザー認証", class: "button"
+.l-right-space

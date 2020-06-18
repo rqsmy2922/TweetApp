@@ -1,0 +1,38 @@
+- provide(:title, "ガイド/ログイン")
+.l-center-space
+  .guides
+    h2.guides-title
+      | ログイン
+    .guides-explanation
+      .guides-explanation-title
+        h2
+          strong
+            | ログイン方法
+      .guides-explanation-text
+        h3
+          | ログインには
+          strong
+            |「メールアドレス」
+          |と
+          strong
+            |「パスワード」
+          |が必要です。<br>また、ログインの際に
+          strong
+            |「ログイン状態の保存」
+          |にチェックを入れると、ログアウトするまでログイン状態を<br>維持できます。
+    .guides-explanation
+      .guides-explanation-title
+        h2
+          strong
+            |パスワードをお忘れの際は
+      .guides-explanation-text
+        h3
+          |パスワードを紛失、お忘れの際は
+          strong
+            |「パスワードリセット」
+          |をご利用ください。<br>
+          strong
+            |「パスワードリセット」
+          |についてはガイドの
+          = link_to 'パスワードリセット', page_path('guides/password_reset')
+          | をご覧ください。

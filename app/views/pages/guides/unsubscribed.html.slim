@@ -1,0 +1,26 @@
+- provide(:title, "ガイド/退会")
+.l-center-space
+  .guides
+    h2.guides-title
+      |退会
+    .guides-explanation
+      .guides-explanation-title
+        h2
+          strong
+            |退会手続き
+      .guides-explanation-text
+          h3
+            |退会手続きを行った場合そのユーザーに紐付けられた情報(登録情報や投稿、フォローなど)が削除されます。<br>
+            strong
+              |削除された情報は復元出来かねますのでご注意ください。
+            |退会手続きはログイン状態でのみ行なえます。<br>ログインを行えない場合は他のガイドをお読みの上、解決しないようであれば
+            = link_to 'お問い合わせ', page_path('guides/contact')
+            |をお願いします。<br>
+            |退会は下記のリンクよりお願いします。リンク先は確認画面になります。<br>
+            |確認画面の注意書きをご確認の上手続きを完了させてください。
+      .unsubscribed
+        - if user = current_user
+          = link_to '退会手続きへ', unsubscribed_user_path(current_user.name), class: 'unscribed-link'
+        - else
+          .unscribed-link
+            | 退会手続きを行うにはログインしてください

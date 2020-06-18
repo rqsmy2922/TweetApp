@@ -1,0 +1,29 @@
+- provide(:title, "ガイド/登録")
+.l-center-space
+  .guides
+    h2.guides-title
+      | ユーザー登録
+    .guides-explanation
+      .guides-explanation-title
+        h2 
+          strong
+            | 登録内容について
+      .guides-explanation-text
+        h3
+          | ご登録の際には
+          strong  
+            |「ユーザー名」「ユーザーID」「メールアドレス」「パスワード」
+          |の入力が必須となります。<br>また、
+          strong
+            |既に使用されている「ユーザーID」「メールアドレス」
+          |についてはご利用いただくことができません。<br>ご登録後
+          strong
+            |「ユーザー名」「ユーザーID」
+          |は
+          = link_to 'ユーザー設定', page_path('guides/user')
+          |で
+          strong
+            |「パスワード」
+          |は
+          = link_to 'パスワードリセット', page_path('guides/password_reset')
+          |で変更が可能です。

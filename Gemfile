@@ -38,6 +38,10 @@ gem 'material_icons'    #アイコン
 gem 'rails-i18n', '~> 5.1' #日本語化
 gem 'sorcery'
 gem 'jquery-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'ransack'
+gem 'high_voltage'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -48,6 +52,8 @@ group :development, :test do
   gem 'hirb'
   gem 'hirb-unicode'
   gem 'sqlite3'
+  gem 'letter_opener'
+  gem 'letter_opener_web'
 end
 
 group :development do
@@ -61,6 +67,7 @@ end
 
 group :production do
   gem 'pg', '0.20.0'
+  gem 'fog', '1.42'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

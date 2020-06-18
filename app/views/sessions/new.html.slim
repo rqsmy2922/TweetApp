@@ -2,16 +2,23 @@
 .l-center-space
     .form.t-form
         - if action_name == "create"
-            .alert.alert-denger メールアドレスまたはパスワードが正しくありません。
+            .alert.alert-denger メールアドレスまたはパスワードが正しくありません
+        .notifications
+            - flash.each do |key, value|
+                = content_tag(:div, value, class: key)
         = form_with(model: @user, url: sessions_path, method: :post) do |f|
             h2.form-title.t-form-title ログイン
             .input-field
                 = f.label :email,"メールアドレス"
                 = f.text_field :email, class: "t-field-text"
             .input-field
-                = f.label :password, "パスワード：6文字以上"
+                = f.label :password, "パスワード"
                 = f.password_field :password, class: "t-field-text"
-            = f.submit "ログイン", class: "button"
-            = link_to '会員登録する', root_path, class: "link-text t-link-text right"
-            .clear 
-                
+            label
+                = f.check_box :remember_me, class: "filled-in "
+                span ログイン状態の保存
+            .button-space
+                = f.submit "ログイン", class: "button"
+        .link-block
+            = link_to 'パスワードをお忘れですか？', new_password_reset_path, class: "link-text t-link-text", style: 'display:block;'
+            = link_to 'ユーザー認証メールを再送信しますか？', new_activate_path, class: "link-text t-link-text", style: 'display:block;'

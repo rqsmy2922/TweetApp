@@ -1,0 +1,21 @@
+- provide(:title, "パスワードリセット")
+.l-left-space
+.l-center-space
+  .form.t-form
+    = form_with model: @user, url: password_reset_path(@token), method: :put do |f|
+      - if errors = @user.errors.full_messages_for(:display_name)
+        - errors.each do |error|
+          .message
+            = error
+      h2.form-title.t-form-title
+        | パスワードリセット
+      = f.label :email
+      = @user.email
+      .input-field
+        = f.label :password, "新規パスワード(6~24文字)"
+        = f.password_field :password, id: 'password', type: "password", required: 'true', minlength: '6', maxlength: '24'
+      .input-field
+        = f.label :password_confirmation, "確認用パスワード"
+        = f.password_field :password_confirmation, id: 'password_confirmation', type: "password", required: 'true', minlength: '6', maxlength: '24'
+      = f.submit "パスワードを変更する", class: "button"
+.l-right-space

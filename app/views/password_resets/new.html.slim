@@ -1,0 +1,12 @@
+- provide(:title, "パスワードリセット")
+.l-left-space
+.l-center-space
+  .form.t-form
+    = form_with model: @user, url: password_resets_path, method: :post do |f|
+      h2.form-title.t-form-title
+          | パスワードリセット
+      .input-field
+        = f.label :email, "メールアドレス"
+        = f.text_field :email, id: 'email', type: "email", required: 'true'
+      = f.submit "パスワード変更メールを送信する", class: "button"
+.l-right-space

@@ -1,0 +1,18 @@
+- provide(:title, "ガイド/お問い合わせ")
+.l-center-space
+  .guides
+    h2.guides-title
+      |お問い合わせ
+    .guides-explanation
+      .guides-explanation-title
+        h2
+          strong
+            |お問い合わせ
+      .guides-explanation-text
+        h3
+          |当サービスでの不具合やガイドを読んで解決しない問題などがございましたら、下記のメールアドレスからご連絡ください。<br>
+          = mail_to 'tweetapp.reply@gmail.com'
+          |<br>なお、
+          strong
+            |「ユーザー認証メール」「パスワード再設定メール」
+          |などのメールアドレスからお問い合わせいただくことは出来かねますのでご了承ください。

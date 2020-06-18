@@ -1,5 +1,3 @@
-
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_065532) do
+ActiveRecord::Schema.define(version: 2020_06_13_023740) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -54,11 +52,17 @@ ActiveRecord::Schema.define(version: 2020_04_27_065532) do
     t.index ["inverse_follower_id"], name: "index_follows_on_inverse_follower_id"
   end
 
+  create_table "guides", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tweets", force: :cascade do |t|
     t.integer "user_id"
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "images"
     t.index ["created_at"], name: "index_tweets_on_created_at"
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
@@ -72,7 +76,19 @@ ActiveRecord::Schema.define(version: 2020_04_27_065532) do
     t.string "name"
     t.string "display_name"
     t.string "bio"
+    t.string "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
+    t.string "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
+    t.integer "access_count_to_reset_password_page", default: 0
+    t.string "activation_state"
+    t.string "activation_token"
+    t.datetime "activation_token_expires_at"
+    t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
 end
