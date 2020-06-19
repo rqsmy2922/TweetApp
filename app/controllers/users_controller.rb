@@ -34,9 +34,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    @user = User.find_by(name: params[:name])
+    @user = current_user
     if @user.update_attributes(params_user)
-      redirect_to user_path(params[:name])
+      redirect_to user_path(@user.name)
     else
       render :edit
     end 
