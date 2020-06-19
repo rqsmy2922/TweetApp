@@ -16,9 +16,9 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.activation_success_email.subject
   #
-  def activation_success_url(user)
+  def activation_success_email(user)
     @user = user
-    @url  = new_sessions_path
+    @url  = new_sessions_url
     mail(:to => user.email,
          :subject => "ユーザー認証に成功しました")
   end
