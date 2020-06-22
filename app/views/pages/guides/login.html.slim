@@ -36,3 +36,10 @@
           |についてはガイドの
           = link_to 'パスワードリセット', page_path('guides/password_reset')
           | をご覧ください。
+    .guides-link
+      .guides-link-left
+        = link_to '<<登録', page_path('guides/registration')
+      .guides-link-back
+        = link_to '戻る', page_path('guides')
+      .guides-link-right
+        = link_to 'ユーザー認証>>', page_path('guides/activate')

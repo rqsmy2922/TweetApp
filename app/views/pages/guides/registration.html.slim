@@ -27,3 +27,9 @@
           |は
           = link_to 'パスワードリセット', page_path('guides/password_reset')
           |で変更が可能です。
+    .guides-link
+      .guides-link-left
+      .guides-link-back
+        = link_to '戻る', page_path('guides')
+      .guides-link-right
+        = link_to 'ログイン>>', page_path('guides/login')

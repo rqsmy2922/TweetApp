@@ -36,7 +36,7 @@
           |の右下にあるハートマークをクリックすることで、
           strong
             |「お気に入り」
-          |に登録することができます。<br>もう一度ハートマークをクリックすると
+          |に登録することができ、<br>もう一度ハートマークをクリックすると
           strong
             |「お気に入り」
           |を解除できます。<br>
@@ -91,3 +91,10 @@
           strong
             |「Tweet」
           |の絞り込みを行えます。空欄で検索すると絞り込みを解除できます。
+    .guides-link
+      .guides-link-left
+        = link_to '<<ユーザー', page_path('guides/user')
+      .guides-link-back
+        = link_to '戻る', page_path('guides')
+      .guides-link-right
+        = link_to 'お問い合わせ>>', page_path('guides/contact')

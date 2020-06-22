@@ -16,7 +16,7 @@
           |に記されたURLを開くことにより完了されます。<br>また、認証が正しく行われた際には
           strong
             |「ユーザー認証完了メール」
-          |が送信されますので、ご確認ください。
+          |が送信されますのでご確認ください。
     .guides-explanation
       .guides-explanation-title
         h2 
@@ -32,5 +32,11 @@
           |から再送信をお願いします。<br>それでもメールが届かない場合はガイドの
           = link_to 'お問い合わせ', page_path('guides/contact')
           |よりご連絡ください。
-          
+    .guides-link
+      .guides-link-left
+        = link_to '<<ログイン', page_path('guides/login')
+      .guides-link-back
+        = link_to '戻る', page_path('guides')
+      .guides-link-right
+        = link_to 'パスワードリセット>>', page_path('guides/password_reset')
   

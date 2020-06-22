@@ -69,4 +69,10 @@
           strong
             |「フォロー」「フォロワー」
           |では検索機能を利用することで、表示するユーザーを絞り込むことができます。
-          
+    .guides-link
+      .guides-link-left
+        = link_to '<<パスワードリセット', page_path('guides/password_reset')
+      .guides-link-back
+        = link_to '戻る', page_path('guides')
+      .guides-link-right
+        = link_to '投稿>>', page_path('guides/tweet')

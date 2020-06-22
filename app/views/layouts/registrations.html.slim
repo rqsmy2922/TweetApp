@@ -13,7 +13,8 @@ html
     link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /
     link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet" /
   body
-    .notifications
-            - flash.each do |key, value|
-                = content_tag(:div, value, class: key)
-    = yield
+    .all-space
+      .notifications
+        - flash.each do |key, value|
+          = content_tag(:div, value, class: key)
+      = yield
