@@ -2,6 +2,7 @@ class RegistrationsController < ApplicationController
   
   def new
     @user = User.new
+    redirect_to tweets_path if current_user
   end
   
   def create
@@ -17,5 +18,5 @@ class RegistrationsController < ApplicationController
  
   def params_user
     params.require(:user).permit(:display_name, :name, :email, :password, :password_confirmation)
-  end 
+  end
 end

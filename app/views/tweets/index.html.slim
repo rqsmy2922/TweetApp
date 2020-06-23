@@ -60,73 +60,37 @@
                   .icon_wap
                     i.material-icons search
           .tab-content.select#tab1
-            - @tweets.each do |t|
-              .block.border.t-border
-                .icon-space
-                  = gravatar_for t.user
-                .main-space
-                  .top-space
-                    .name-space
-                      .t-text.inline
-                        = link_to user_path(t.user.name)
-                          = t.user.display_name
-                      .t-text-unemphasized
-                        = "@" + t.user.name
-                        | ・
-                        = distance_of_time_in_words_to_now(t.created_at)
-                    .follow-buttun-space
-                      - if t.user == current_user
-                        |
-                      - elsif t.user.followed_by? current_user
-                        = button_to "フォロー解除", user_follows_path(t.user), method: :delete, data: {confirm: "フォローを解除しますか？"}, class: "following-button"
-                      - else
-                        = button_to "フォロー", user_follows_path(t.user), method: :post, class: " follow-button"
-                  .bottom-space
-                    .content-text
-                      = t.content
-                  .image-space
-                    - t.images.each do |image|
-                      =  link_to image.url, 'data-lightbox': image do
-                        = image_tag(image.url, class: "image1") if t.images?
-                  .option-space
-                    .favotite-space
-                      - if t.favorited_by? current_user
-                        = link_to "favorite", tweet_favorites_path(t), method: :delete, class: "material-icons"
-                      - else
-                        = link_to "favorite_border", tweet_favorites_path(t), method: :post, class: "material-icons"
-                    .delete-space
-                      - if t.user_id == current_user.id
-                        = link_to "delete", tweet_path(t), method: :delete, data: {confirm: "ツイートを削除しますか？"}, class: "material-icons"
-                      - else
-                        |
-          .tab-content#tab2
-            - @users.each do |f|
-              - f.tweets.each do |t|
+            - if @tweets.empty?
+              | Tweetはありません
+            - else
+              - @tweets.each do |t|
                 .block.border.t-border
                   .icon-space
                     = gravatar_for t.user
-                  .main-space  
+                  .main-space
                     .top-space
                       .name-space
                         .t-text.inline
-                          = link_to user_path(f.name)
-                            = f.display_name
+                          = link_to user_path(t.user.name)
+                            = t.user.display_name
                         .t-text-unemphasized
-                          = "@" + f.name
+                          = "@" + t.user.name
                           | ・
                           = distance_of_time_in_words_to_now(t.created_at)
                       .follow-buttun-space
-                        - if f.followed_by? current_user
-                          = button_to "フォロー解除", user_follows_path(f), method: :delete, data: {confirm: "フォローを解除しますか？"}, class: "following-button"
+                        - if t.user == current_user
+                          |
+                        - elsif t.user.followed_by? current_user
+                          = button_to "フォロー解除", user_follows_path(t.user), method: :delete, data: {confirm: "フォローを解除しますか？"}, class: "following-button"
                         - else
-                          = button_to "フォロー", user_follows_path(f), method: :post, class: "follow-button"
+                          = button_to "フォロー", user_follows_path(t.user), method: :post, class: " follow-button"
                     .bottom-space
                       .content-text
                         = t.content
                     .image-space
                       - t.images.each do |image|
-                        = link_to image.url, 'data-lightbox': image do
-                          = image_tag(image.url, class: "image1")
+                        =  link_to image.url, 'data-lightbox': image do
+                          = image_tag(image.url, class: "image1") if t.images?
                     .option-space
                       .favotite-space
                         - if t.favorited_by? current_user
@@ -138,6 +102,48 @@
                           = link_to "delete", tweet_path(t), method: :delete, data: {confirm: "ツイートを削除しますか？"}, class: "material-icons"
                         - else
                           |
+          .tab-content#tab2
+            - if current_user.inverse_followers.empty?
+              | フォロー中の方のTweetはありません
+            - else
+              - @users.each do |f|
+                - f.tweets.each do |t|
+                  .block.border.t-border
+                    .icon-space
+                      = gravatar_for t.user
+                    .main-space  
+                      .top-space
+                        .name-space
+                          .t-text.inline
+                            = link_to user_path(f.name)
+                              = f.display_name
+                          .t-text-unemphasized
+                            = "@" + f.name
+                            | ・
+                            = distance_of_time_in_words_to_now(t.created_at)
+                        .follow-buttun-space
+                          - if f.followed_by? current_user
+                            = button_to "フォロー解除", user_follows_path(f), method: :delete, data: {confirm: "フォローを解除しますか？"}, class: "following-button"
+                          - else
+                            = button_to "フォロー", user_follows_path(f), method: :post, class: "follow-button"
+                      .bottom-space
+                        .content-text
+                          = t.content
+                      .image-space
+                        - t.images.each do |image|
+                          = link_to image.url, 'data-lightbox': image do
+                            = image_tag(image.url, class: "image1")
+                      .option-space
+                        .favotite-space
+                          - if t.favorited_by? current_user
+                            = link_to "favorite", tweet_favorites_path(t), method: :delete, class: "material-icons"
+                          - else
+                            = link_to "favorite_border", tweet_favorites_path(t), method: :post, class: "material-icons"
+                        .delete-space
+                          - if t.user_id == current_user.id
+                            = link_to "delete", tweet_path(t), method: :delete, data: {confirm: "ツイートを削除しますか？"}, class: "material-icons"
+                          - else
+                            |
 
 = javascript_include_tag 'dropify'
 javascript:

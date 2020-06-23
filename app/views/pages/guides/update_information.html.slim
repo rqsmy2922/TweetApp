@@ -1,0 +1,59 @@
+- provide(:title, "ガイド/更新・不具合情報")
+.l-center-space
+  .guides
+    h2.guides-title
+      | 更新・不具合情報
+    .guides-explanation
+      .guides-explanation-title
+        h2 
+          strong
+            |現在の不具合情報
+      .guides-explanation-text
+        h3
+          |・
+          strong
+            |「IE11」
+          |においてログイン画面の
+          strong
+            |「ログイン状態を保存する」がチェック出来ない。<br>
+          |・
+          strong
+            |「iOS端末」
+          |においてヘッダーが正しく表示されない。
+    .guides-explanation
+      .guides-explanation-title
+        h2 
+          strong
+            |更新情報
+      .guides-explanation-text
+        h3
+          |2020年6月23日現在のバージョンは
+          strong
+            |「1.0」
+          |となります。<br>
+          |ver1.0ではユーザー登録式のSNSサービス<br>
+          |ユーザープロフィールの設定、フォロー機能、投稿機能、画像投稿機能、お気に入り機能を最新バージョンの<br>
+          strong
+            |「Firefox」「GoogleChrome」「MicrosoftEdge」
+          |でご利用いただけます。<br>
+          |それ以外のブラウザでは正しく動作しない可能性がございますので、ご了承ください。
+    .guides-explanation
+      .guides-explanation-title
+        h2 
+          strong
+            |次回更新
+      .guides-explanation-text
+        h3
+          |次回の更新では、
+          strong
+            |不具合修正、レスポンシブルデザインの対応
+          |を予定しております。
+          
+    .guides-link
+      .guides-link-left
+        = link_to '<<お問い合わせ', page_path('guides/contact')
+      .guides-link-back
+        = link_to '戻る', page_path('guides')
+      .guides-link-right
+        = link_to '退会>>', page_path('guides/unsubscribed')
+  
