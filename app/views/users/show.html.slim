@@ -83,7 +83,7 @@
             | tweetしてみましょう
           - else
             - @tweets.each do |t|
-              .block.border.t-border
+              .block
                 .icon-space
                   = gravatar_for @user
                 .main-space
@@ -125,7 +125,7 @@
             | フォローしてみましょう
           - else
             - @inverse_followers.each do |f|
-              .block.border.t-border
+              .block
                 .icon-space
                   = gravatar_for f
                 .main-space
@@ -150,7 +150,7 @@
             | まだフォロワーがいません
           - else
             - @followers.each do |f|
-              .block.border.t-border
+              .block
                 .icon-space
                   = gravatar_for f
                 .main-space
@@ -176,7 +176,7 @@
           - else
             - @favorites.each do |f|
               - user = User.find_by(id: f.tweet.user_id)
-              .block.border.t-border
+              .block
                 .icon-space
                   = gravatar_for user
                 .main-space

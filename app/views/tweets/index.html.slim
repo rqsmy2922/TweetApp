@@ -1,5 +1,5 @@
 .l-sub-space
-  .tweet-form.border.t-border
+  .tweet-form
     .user-description-sapce-t
       .t-text
         = link_to user_path(current_user)
@@ -64,7 +64,7 @@
               | Tweetはありません
             - else
               - @tweets.each do |t|
-                .block.border.t-border
+                .block
                   .icon-space
                     = gravatar_for t.user
                   .main-space
@@ -108,7 +108,7 @@
             - else
               - @users.each do |f|
                 - f.tweets.each do |t|
-                  .block.border.t-border
+                  .block
                     .icon-space
                       = gravatar_for t.user
                     .main-space  

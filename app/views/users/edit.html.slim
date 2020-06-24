@@ -3,25 +3,25 @@
 .l-center-space
   .form.t-form
     = form_with model: @user, url: user_path(params[:name]), method: :patch, local: true do |f|
-      h2.form-title.t-form-title
+      h2.form-title
         | プロフィール編集
       .input-field
         = f.label :name, "ユーザーID(4~24文字)"
-        = f.text_field :name, class: "t-field-text", required: 'true', minlength: '4', maxlength: '24', pattern: '^[a-z][a-z0-9]+'
+        = f.text_field :name, required: 'true', minlength: '4', maxlength: '24', pattern: '^[a-z][a-z0-9]+'
       - if errors = @user.errors.full_messages_for(:name)
         - errors.each do |error|
           .message
             = error
       .input-field
         = f.label :display_name, "ユーザー名(1~15文字)"
-        = f.text_field :display_name, class: "t-field-text", required: 'true', minlength: '1', maxlength: '15'
+        = f.text_field :display_name, required: 'true', minlength: '1', maxlength: '15'
       - if errors = @user.errors.full_messages_for(:display_name)
         - errors.each do |error|
           .message
             = error
       .input-field
         = f.label :bio, "プロフィール(140文字)"
-        = f.text_area :bio, class: "t-field-text, js-text", maxlength: '140'
+        = f.text_area :bio, class: "js-text", maxlength: '140'
       p style="text-align:right;" class="js-text-count"
       - if errors = @user.errors.full_messages_for(:bio)
         - errors.each do |error|

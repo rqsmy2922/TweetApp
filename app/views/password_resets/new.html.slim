@@ -3,7 +3,7 @@
 .l-center-space
   .form.t-form
     = form_with model: @user, url: password_resets_path, method: :post do |f|
-      h2.form-title.t-form-title
+      h2.form-title
           | パスワードリセット
       .input-field
         = f.label :email, "メールアドレス"
