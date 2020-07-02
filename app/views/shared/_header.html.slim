@@ -11,13 +11,13 @@
           li
             = link_to "マイページ" , user_path(current_user.name), method: :get
           li
-            = link_to "ヘルプ", page_path('guides')
+            = link_to "ガイド", page_path('guides')
           li
             = link_to "ログアウト", sessions_path, method: :delete, data: {confirm: "ログアウトしますか？"}
         - else
           li
             = link_to "トップ", new_registrations_path, method: :get
           li
-            = link_to "ヘルプ", page_path('guides')
+            = link_to "ガイド", page_path('guides')
           li
             = link_to "ログイン", new_sessions_path, method: :get
