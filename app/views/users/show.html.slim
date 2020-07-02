@@ -55,25 +55,25 @@
         .tab-label id="tab3" フォロワー
         .tab-label.tab-r id="tab4" お気に入り
         .search_wap.select#tab1
-            = search_form_for @search, url: user_path(@user) do |f|
+            = search_form_for @search, url: user_path(@user.name) do |f|
               = f.text_field :content_cont , placeholder: "ツイートを検索"
                 = button_tag "", :name => nil, class: "search__button"
                   .icon_wap
                     i.material-icons search
         .search_wap#tab2
-            = search_form_for @search2, as: :q2, url: user_path(@user) do |f|
+            = search_form_for @search2, as: :q2, url: user_path(@user.name) do |f|
               = f.text_field :display_name_or_name_or_bio_cont, placeholder: "フォローを検索"
                 = button_tag "", :name => nil, class: "search__button"
                   .icon_wap
                     i.material-icons search
         .search_wap#tab3
-            = search_form_for @search3, as: :q3, url: user_path(@user) do |f|
+            = search_form_for @search3, as: :q3, url: user_path(@user.name) do |f|
               = f.text_field :display_name_or_name_or_bio_cont, placeholder: "フォロワーを検索"
                 = button_tag "", :name => nil, class: "search__button"
                   .icon_wap
                     i.material-icons search
         .search_wap#tab4
-            = search_form_for @search4, as: :q4, url: user_path(@user) do |f|
+            = search_form_for @search4, as: :q4, url: user_path(@user.name) do |f|
               = f.text_field :tweet_content_cont , placeholder: "お気に入りを検索"
                 = button_tag "", :name => nil, class: "search__button"
                   .icon_wap

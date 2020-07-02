@@ -7,59 +7,39 @@
     .l-right-content
         .form
             = form_with(model: @user, url: registrations_path, method: :post, id: 'registrationform') do |f|
-                h2.form-title 会員登録
-                .textbox
+                h2.form-title 
+                    |会員登録
+                .input-field
+                    = f.label :display_name, "ユーザー名", style: ("color:black;") 
                     = f.text_field :display_name, id: 'display_name', required: 'true', minlength: '1', maxlength: '15'
-                    = f.label :display_name, "ユーザー名"
-                    .error 入力内容に誤りがあります
-                    .info
-                        .tooltip 1~15文字で入力してください
                 - if errors = @user.errors.full_messages_for(:display_name)
                     - errors.each do |error|
                         .message
                             = error
-                .textbox
+                .input-field
+                    = f.label :name, "ユーザーID(半角英数字、数字のみは不可)", style: ("color:black;") 
                     = f.text_field :name, id: 'name', required: 'true', minlength: '4', maxlength: '24', pattern: '^[a-z][a-z0-9]+'
-                    = f.label :name, "ユーザーID"
-                    .error 入力内容に誤りがあります
-                    .info
-                        .tooltip 4~24文字の半角英数字<br>
-                                 (数字のみは不可)<br>
-                                 で入力してください
                 - if errors = @user.errors.full_messages_for(:name)
                     - errors.each do |error|
                         .message
                             = error
-                .textbox
+                .input-field
+                    = f.label :email,"メールアドレス", style: ("color:black;") 
                     = f.text_field :email, id: 'email', type: "email", required: 'true'
-                    = f.label :email,"メールアドレス"
-                    .error 入力内容に誤りがあります
-                    .info
-                        .tooltip ドメインを含む<br>
-                                 メールアドレスを<br>
-                                 入力してください
                 - if errors = @user.errors.full_messages_for(:email)
                     - errors.each do |error|
                         .message
                             = error
-                .textbox
+                .input-field
+                    = f.label :password, "パスワード", style: ("color:black;") 
                     = f.password_field :password, id: 'password', type: "password", required: 'true', minlength: '6', maxlength: '24'
-                    = f.label :password, "パスワード"
-                    .error 入力内容に誤りがあります
-                    .info
-                        .tooltip 6~24文字のパスワード<br>
-                                 を入力してください
                 - if errors = @user.errors.full_messages_for(:password)
                     - errors.each do |error|
                         .message
                             = error
-                .textbox
+                .input-field
+                    = f.label :password_confirmation, "確認用パスワード", style: ("color:black;") 
                     = f.password_field :password_confirmation, id: 'password_confirmation', type: "password", required: 'true', minlength: '6', maxlength: '24'
-                    = f.label :password_confirmation, "確認用パスワード"
-                    .error 入力に誤りがあります
-                    .info
-                        .tooltip パスワードと同じ文字を<br>
-                                 入力してください
                 - if errors = @user.errors.full_messages_for(:password_confirmation)
                     - errors.each do |error|
                         .message
@@ -67,5 +47,3 @@
                 .button-space
                     = f.submit "登録する", class: "button"
                     = link_to "ログインする", new_sessions_path, class: 'link-text right'
-                
-= javascript_include_tag 'new'

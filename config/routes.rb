@@ -15,16 +15,10 @@ Rails.application.routes.draw do
       get :activate, param: :activation_token
     end
   end
-  resources :tweets do
+  resources :tweets, only: [:index, :create, :destroy] do
     resource :favorites, only: [:create, :destroy]
   end 
-  resources :tweets do
-    collection do
-      get :search
-    end
-  end
   
-  get 'search' => 'tweets#search'
   get 'login' => 'sessions#new'
   post 'logout' => 'sessions#destroy'
   root to: 'registrations#new' 
