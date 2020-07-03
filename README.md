@@ -63,8 +63,7 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 
 各情報を入力し「登録する」をクリックすると「ユーザー認証メール」が送信されます。
 
-<img src="./app/assets/images/toppage.jpg" width=50% "トップページ">
-![ユーザー認証メール](./app/assets/images/activate.jpg "ユーザー認証メール")
+![トップページ](./app/assets/images/toppage.jpg "トップページ")![ユーザー認証メール](./app/assets/images/activate.jpg "ユーザー認証メール")
 
 ## ログイン
 
