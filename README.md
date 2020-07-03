@@ -59,7 +59,7 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 
 |トップページ|ユーザー認証メール|
 |---|---|
-|![トップページ]("./app/assets/images/toppage.jpg")|![ユーザー認証メール]("./app/assets/images/activate.jpg")
+|![トップページ](./app/assets/images/toppage.jpg)|![ユーザー認証メール](./app/assets/images/activate.jpg)
 
 ## ログイン
 
@@ -122,9 +122,9 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 これらは「フォロー解除」を行うことですべて解除されます。
 なお、ご自身(ログイン中のユーザー)のユーザー情報には「フォローボタン」は表示されません。
 
-|自身のユーザー情報|ユーザー情報|
+|自身のユーザー情報|他のユーザー情報|
 |---|---|
-|![自身のユーザー情報](./app/assets/images/own_user.jpg)|![ユーザー情報](./app/assets/images/user.jpg)|
+|![自身のユーザー情報](./app/assets/images/own_user.jpg)|![他のユーザー情報](./app/assets/images/user.jpg)|
 
 ## tweet
 
@@ -134,9 +134,9 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 「お気に入り」に登録した「tweet」はマイページの「お気に入り」から確認でき、もう一度クリックした場合「お気に入り」から解除出来ます。  
 「tweet」の削除は「tweet」の投稿者のみ行うことができ、削除前に確認が表示されますが、削除してしまうと復元は出来かねますのでご注意ください。 
 
-|自身のtweet|tweet|
+|自身のtweet|他のユーザーのtweet|
 |---|---|
-|![自身のtweet](./app/assets/images/own_tweet.jpg)|![tweet](./app/assets/images/tweet.jpg)|
+|![自身のtweet](./app/assets/images/own_tweet.jpg)|![他のユーザーのtweet](./app/assets/images/tweet.jpg)|
 
 ## 検索機能
 
@@ -148,7 +148,7 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 |---|
 |![検索フォーム](./app/assets/images/search.jpg)|
 
-## その他
+## パスワードリセット
 
 ***
 
@@ -159,6 +159,8 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 |---|
 |![パスワードリセットメール](./app/assets/images/password_reset.jpg)|
 
+## ガイド
+
 ***
 
 サービスご利用中にご不明な点がございましたら、ヘッダー内の「ガイド」よりサービスについての説明を確認することが可能です。  
@@ -167,6 +169,8 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 |ガイド|
 |---|
 |![ガイド](./app/assets/images/guides.jpg)|
+
+## 退会
 
 ***
 
@@ -228,12 +232,18 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 
 * Git(Bitbucket)
 
-## 環境
+## 開発環境
 
 ***
 
-* AWS cloud9(開発環境)
-* Heroku(本番環境)
+* AWS cloud9
+
+## 本番環境
+
+***
+
+* Heroku
+
 
 # 製作者情報
 
