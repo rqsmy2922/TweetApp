@@ -43,8 +43,8 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 
 各情報を入力し「登録する」をクリックすると「ユーザー認証メール」が送信されます。
 
-![トップページ](images/toppage.jpg)
-![ユーザー認証メール](images/activation.jpg)  
+![トップページ](./app/assets/images/toppage.jpg)
+![ユーザー認証メール](./app/assets/images/activate.jpg)
 
 ## ログイン
 
@@ -53,7 +53,7 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 なお、「ユーザー認証メール」が届かない場合は"tweetapp.reply@gmail.com"からのメールを届くようにご設定のうえ、  
 ログインページの下部の「ユーザー認証メールを再送信しますか？」より再度メールを受信して、認証を完了してください。
 
-![ログインページ](images/login.jpg)
+![ログインページ](./app/assets/images/login.jpg)
 
 ## ホーム
 
@@ -62,8 +62,8 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 また、画面左側では「tweet」が行なえます。「tweet」には1~140文字の文章が必要で、画像を1~4枚追加できます。  
 投稿フォーム上部のカウントからマイページの各コンテンツへ移動することも出来ます。  
 
-![ホーム](images/home.jpg)
-![投稿フォーム](images/tweet_form.jpg)
+![ホーム](./app/assets/images/home.jpg)
+![投稿フォーム](./app/assets/images/tweet_form.jpg)
 
 ## マイページ
 
@@ -72,14 +72,14 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 「ユーザーアイコン」につきましては外部サービス[Gravatar](https://ja.gravatar.com/)により「メールアドレス」に紐付けられた画像が表示されるようになっています。  
 アイコン変更の際には上記のリンクよりお願いします。
 
-![マイページ](images/mypage.jpg)
-![ユーザー編集](images/edit.jpg)
+![マイページ](./app/assets/images/mypage.jpg)
+![ユーザー編集](./app/assets/images/edit.jpg)
 
 ## ユーザー一覧
 
 ユーザー一覧では本サービスをご利用中のすべてのユーザーを確認することが出来ます。
 
-![ユーザー一覧](images/users_index.jpg)
+![ユーザー一覧](./app/assets/images/users_index.jpg)
 
 ## ユーザー情報
 
@@ -91,7 +91,8 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 これらは「フォロー解除」を行うことですべて解除されます。
 なお、ご自身(ログイン中のユーザー)のユーザー情報には「フォローボタン」は表示されません。
 
-![ユーザー情報](images/users_info.jpg)
+![ユーザー(自身)](./app/assets/images/own_user.jpg)
+![他ユーザー](./app/assets/images/user.jpg)
 
 ## tweet
 
@@ -99,8 +100,14 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 「お気に入り」に登録した「tweet」はマイページの「お気に入り」から確認でき、もう一度クリックした場合「お気に入り」から解除出来ます。  
 「tweet」の削除は「tweet」の投稿者のみ行うことができ、削除前に確認が表示されますが、削除してしまうと復元は出来かねますのでご注意ください。 
 
-![自身のtweet](images/own_tweet.jpg)
-![tweet](images/tweet.jpg)
+![自身のtweet](./app/assets/images/own_tweet.jpg)
+![tweet](./app/assets/images/tweet.jpg)
+
+## 検索機能
+
+ホームやユーザーページなどで検索機能を利用することで、「ユーザー」や「tweet」の絞り込みが行なえます。
+
+![検索フォーム](./app/assets/images/search.jpg)
 
 ## その他
 
@@ -111,9 +118,9 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 * 本サービスにご登録中の情報の削除(退会)は「ログイン」状態で「ガイド」の「退会」から行うことが出来ます。  
 一度「退会」を完了させてしまうと情報の復元は出来かねますので「退会」に記載されている内容をご確認の上手続きをお願いします。
 
-![パスワードリセットメール](images/password_reset.jpg)
-![ガイド](images/guides.jpg)
-![退会](images/unsubscribed.ipg)
+![パスワードリセットメール](./app/assets/images/password_reset.jpg)
+![ガイド](./app/assets/images/guides.jpg)
+![退会](./app/assets/images/unsubscribed.ipg)
  
 # アップデート
  
@@ -125,7 +132,38 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 * 「動画投稿」機能の追加
 
 を予定しています。
- 
+
+# 製作環境
+
+## OS
+
+* Linux(Ubuntu 18.04)
+
+## 言語
+
+* Ruby 2.6.3
+* HTML5(slim)
+* Sass
+
+## フレームワーク
+
+* Ruby on Rails 5.2.4.3
+* materialize-sass 1.0.0
+
+## データベース
+
+* SQLite3 1.4.2(開発環境)
+* postgreSQL(本番環境)
+
+## バージョン管理
+
+* Git(Bitbucket)
+
+## 環境
+
+* AWS cloud9(開発環境)
+* Heroku(本番環境)
+
 # 製作者情報
  
 * 氏名: 外山大貴
