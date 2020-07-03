@@ -59,7 +59,7 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 
 |トップページ|ユーザー認証メール|
 |---|---|
-![トップページ]("./app/assets/images/toppage.jpg")![ユーザー認証メール]("./app/assets/images/activate.jpg")
+|![トップページ]("./app/assets/images/toppage.jpg")|![ユーザー認証メール]("./app/assets/images/activate.jpg")
 
 ## ログイン
 
@@ -72,7 +72,7 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 
 |ログインページ|
 |---|
-![ログインページ](./app/assets/images/login.jpg)
+|![ログインページ](./app/assets/images/login.jpg)|
 
 ## ホーム
 
@@ -83,8 +83,9 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 また、画面左側では「tweet」が行なえます。「tweet」には1~140文字の文章が必要で、画像を1~4枚追加できます。  
 投稿フォーム上部のカウントからマイページの各コンテンツへ移動することも出来ます。  
 
-![ホーム](./app/assets/images/home.jpg)
-![投稿フォーム](./app/assets/images/tweet_form.jpg)
+|ホーム|投稿フォーム|
+|---|---|
+|![ホーム](./app/assets/images/home.jpg)|![投稿フォーム](./app/assets/images/tweet_form.jpg)|
 
 ## マイページ
 
@@ -95,8 +96,9 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 「ユーザーアイコン」につきましては外部サービス[Gravatar](https://ja.gravatar.com/)により「メールアドレス」に紐付けられた画像が表示されるようになっています。  
 アイコン変更の際には上記のリンクよりお願いします。
 
-![マイページ](./app/assets/images/mypage.jpg)
-![ユーザー編集](./app/assets/images/edit.jpg)
+|マイページ|ユーザー編集|
+|---|---|
+|![マイページ](./app/assets/images/mypage.jpg)|![ユーザー編集](./app/assets/images/edit.jpg)|
 
 ## ユーザー一覧
 
@@ -104,7 +106,9 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 
 ユーザー一覧では本サービスをご利用中のすべてのユーザーを確認することが出来ます。
 
-![ユーザー一覧](./app/assets/images/users_index.jpg)
+|ユーザー情報|
+|---|
+|![ユーザー一覧](./app/assets/images/users_index.jpg)|
 
 ## ユーザー情報
 
@@ -118,8 +122,9 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 これらは「フォロー解除」を行うことですべて解除されます。
 なお、ご自身(ログイン中のユーザー)のユーザー情報には「フォローボタン」は表示されません。
 
-![ユーザー(自身)](./app/assets/images/own_user.jpg)
-![他ユーザー](./app/assets/images/user.jpg)
+|自身のユーザー情報|ユーザー情報|
+|---|---|
+|![自身のユーザー情報](./app/assets/images/own_user.jpg)|![ユーザー情報](./app/assets/images/user.jpg)|
 
 ## tweet
 
@@ -129,8 +134,9 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 「お気に入り」に登録した「tweet」はマイページの「お気に入り」から確認でき、もう一度クリックした場合「お気に入り」から解除出来ます。  
 「tweet」の削除は「tweet」の投稿者のみ行うことができ、削除前に確認が表示されますが、削除してしまうと復元は出来かねますのでご注意ください。 
 
-![自身のtweet](./app/assets/images/own_tweet.jpg)
-![tweet](./app/assets/images/tweet.jpg)
+|自身のtweet|tweet|
+|---|---|
+|![自身のtweet](./app/assets/images/own_tweet.jpg)|![tweet](./app/assets/images/tweet.jpg)|
 
 ## 検索機能
 
@@ -138,7 +144,9 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 
 ホームやユーザーページなどで検索機能を利用することで、「ユーザー」や「tweet」の絞り込みが行なえます。
 
-![検索フォーム](./app/assets/images/search.jpg)
+|検索フォーム|
+|---|
+|![検索フォーム](./app/assets/images/search.jpg)|
 
 ## その他
 
@@ -147,21 +155,27 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 パスワードをお忘れの場合はログインページ下部の「パスワードをお忘れですか」より「パスワードリセットメール」を送信し、  
 受信したメールに記載されているURLより手続きをすすめることで「パスワード」を変更することが出来ます。  
 
-![パスワードリセットメール](./app/assets/images/password_reset.jpg)
+|パスワードリセットメール|
+|---|
+|![パスワードリセットメール](./app/assets/images/password_reset.jpg)|
 
 ***
 
 サービスご利用中にご不明な点がございましたら、ヘッダー内の「ガイド」よりサービスについての説明を確認することが可能です。  
 それでもご不明な点が解消されない場合や、不具合があった場合は「ガイド」内の「お問い合わせ」よりご連絡ください。
 
-![ガイド](./app/assets/images/guides.jpg)
+|ガイド|
+|---|
+|![ガイド](./app/assets/images/guides.jpg)|
 
 ***
 
 本サービスにご登録中の情報の削除(退会)は「ログイン」状態で「ガイド」の「退会」から行うことが出来ます。  
 一度「退会」を完了させてしまうと情報の復元は出来かねますので「退会」に記載されている内容をご確認の上手続きをお願いします。
 
-![退会](./app/assets/images/unsubscribed.jpg)
+|退会|
+|---|
+|![退会](./app/assets/images/unsubscribed.jpg)|
  
 # アップデート
 
