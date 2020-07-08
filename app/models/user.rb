@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :inverse_follows, foreign_key: :inverse_follower_id, dependent: :destroy, class_name: "Follow"
   has_many :followers, through: :inverse_follows, dependent: :destroy
   
+  mount_uploader :icon, IconUploader
+  serialize :icon, JSON
+  
   
   validates :name, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[a-z][a-z0-9]+\z/ }, length: { in: 4..24 }
   validates :display_name, presence: true, length: { in: 1..15 }

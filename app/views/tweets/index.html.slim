@@ -66,7 +66,12 @@
               - @tweets.each do |t|
                 .block
                   .icon-space
-                    = gravatar_for t.user
+                    - if t.user.icon.present?
+                      = link_to user_path(t.user.name)
+                        = image_tag t.user.icon.url
+                    - else
+                      = link_to user_path(t.user.name)
+                        = image_tag "icon.jpeg"
                   .main-space
                     .top-space
                       .name-space
@@ -110,7 +115,12 @@
                 - f.tweets.each do |t|
                   .block
                     .icon-space
-                      = gravatar_for t.user
+                      - if f.icon.present?
+                        = link_to user_path(f.name)
+                          = image_tag f.icon.url
+                      - else
+                        = link_to user_path(f.name)
+                          = image_tag "icon.jpeg"
                     .main-space  
                       .top-space
                         .name-space

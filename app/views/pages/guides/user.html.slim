@@ -12,24 +12,14 @@
           |サイト内で表示されるユーザー情報は、
           strong
             |「ユーザー名」「ユーザーID」「プロフィール」<br>「ユーザーアイコン」
-          |が存在し、
-          strong
-            |「ユーザー名」「ユーザーID」「プロフィール」
-          |はマイページの<br>
+          |が存在し、マイページの
           strong
             |「プロフィール編集」
-          |より変更することが可能です。<br>また当サイトでは、
+          |より変更することが可能です。<br>
           strong
             |「ユーザーアイコン」
-          |は外部サービスの
-          = link_to 'Gravatar', 'https://ja.gravatar.com/', :target=>["_blank"]
-          |を使用して表示しています。<br>
-          strong
-            |「ユーザーアイコン」
-          |を変更する場合は上記リンクにアクセスし、
-          strong
-            |「Gravetarを作成」
-          |から登録と画像の変更をお願いします。
+          |は下記画像の左上(人型のアイコン、変更した場合は変更したアイコン)<br>をクリックすることで変更できます。
+        = image_tag "edit_icon.jpg", width: "400"
     .guides-explanation
       .guides-explanation-title
         h2

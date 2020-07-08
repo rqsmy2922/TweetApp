@@ -5,6 +5,12 @@
     = form_with model: @user, url: user_path(params[:name]), method: :patch, local: true do |f|
       h2.form-title
         | プロフィール編集
+      .input-icon
+        - if current_user.icon.present?
+          = image_tag current_user.icon.url, id: :icon_preview, onClick:"$('#icon').click()"
+        - else
+          = image_tag "icon.jpeg", id: :icon_preview, onClick:"$('#icon').click()"
+        = f.file_field :icon, id: :icon
       .input-field
         = f.label :name, "ユーザーID(4~24文字)"
         = f.text_field :name, required: 'true', minlength: '4', maxlength: '24', pattern: '^[a-z][a-z0-9]+'
@@ -27,7 +33,10 @@
         - errors.each do |error|
           .message
             = error
+      
+          = f.file_field :icon
       = f.submit "送信する", class: "button"
 .l-right-space
 
+= javascript_include_tag 'icon'
 = javascript_include_tag 'count'

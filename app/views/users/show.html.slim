@@ -4,7 +4,10 @@
   .user-space-column.t-block.border.t-border
     .user-space-row
       .user-icon-space
-        = gravatar_for @user
+        - if @user.icon.present?
+          = image_tag @user.icon.url
+        - else
+          = image_tag "icon.jpeg"
       .user-main-space
         .user-top-space
           .user-name-space
@@ -85,7 +88,12 @@
             - @tweets.each do |t|
               .block
                 .icon-space
-                  = gravatar_for @user
+                  - if current_user.icon.present?
+                    = link_to user_path(t.user.name)
+                      = image_tag @user.icon.url
+                  - else
+                    = link_to user_path(t.user.name)
+                      = image_tag "icon.jpeg"
                 .main-space
                   .top-space
                     .name-space
@@ -127,7 +135,12 @@
             - @inverse_followers.each do |f|
               .block
                 .icon-space
-                  = gravatar_for f
+                  - if f.icon.present?
+                    = link_to user_path(f.name)
+                      = image_tag f.icon.url
+                  - else
+                    = link_to user_path(f.name)
+                      = image_tag "icon.jpeg"
                 .main-space
                   .top-space
                     .name-space
@@ -152,7 +165,12 @@
             - @followers.each do |f|
               .block
                 .icon-space
-                  = gravatar_for f
+                  - if f.icon.present?
+                    = link_to user_path(f.name)
+                      = image_tag f.icon.url
+                  - else
+                    = link_to user_path(f.name)
+                      = image_tag "icon.jpeg"
                 .main-space
                   .top-space
                     .name-space
@@ -178,7 +196,12 @@
               - user = User.find_by(id: f.tweet.user_id)
               .block
                 .icon-space
-                  = gravatar_for user
+                  - if user.icon.present?
+                    = link_to user_path(user.name)
+                      = image_tag user.icon.url
+                  - else
+                    = link_to user_path(user.name)
+                      = image_tag "icon.jpeg"
                 .main-space
                   .top-space
                     .name-space

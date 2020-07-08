@@ -16,7 +16,12 @@
             - @users.each do |user|
               .block
                 .icon-space
-                  = gravatar_for user
+                  - if user.icon.present?
+                    = link_to user_path(user.name)
+                      = image_tag user.icon.url
+                  - else
+                    = link_to user_path(user.name)
+                      = image_tag "icon.jpeg"
                 .main-space
                   .top-space
                     .name-space
