@@ -1,0 +1,21 @@
+- provide(:title, "ガイド/ライセンス")
+.l-center-space
+  .guides
+    h2.guides-title
+      | ライセンス
+    .guides-explanation
+      .guides-explanation-title
+        h2 
+          strong
+            |ライセンス
+      .guides-explanation-text
+        h3
+          |当サービスの製作には[Apache License, Version 2.0]の成果物が利用されています。<br>
+          |(当サービスのライセンスは[Apache License, Version 2.0]ではありません)
+    .guides-link
+      .guides-link-left
+        = link_to '<<更新・不具合情報', page_path('guides/update_information')
+      .guides-link-back
+        = link_to '戻る', page_path('guides')
+      .guides-link-right
+        = link_to '退会>>', page_path('guides/unsubscribed')

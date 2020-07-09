@@ -15,12 +15,10 @@ nav {
 
   color: $navbar-font-color;
   @extend .z-depth-1;
-  background-color: #616161;
-  width: 1280px;
+  background-color: $primary-color;
+  width: 100%;
   height: $navbar-height-mobile;
   line-height: $navbar-line-height-mobile;
-  margin-bottom: 16px;
-  position: fixed;
 
   a { color: $navbar-font-color; }
 

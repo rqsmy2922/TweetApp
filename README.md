@@ -223,7 +223,7 @@ TweetAppはポートフォリオに記載するために作製した会員登録
 
 ***
 
-* SQLite3 1.4.2(開発環境)
+* SQLite3(開発環境)
 * postgreSQL(本番環境)
 
 ## バージョン管理
@@ -258,3 +258,5 @@ TweetAppはポートフォリオに記載するために作製した会員登録
  
 "TweetApp" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
  
+ 当サービスは[Apache License 2.0](https://opensource.org/licenses/Apache-2.0)  
+ のライセンスで配布されている成果物を利用して製作されています。

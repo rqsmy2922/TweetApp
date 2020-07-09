@@ -3,7 +3,8 @@
         h1.title TweetApp(仮)
         p.description 
             | このサイトは、動画や写真、つぶやきを投稿できるSNSサイトです。<br>
-              まずは右のフォームで会員登録しましょう！
+              まずは右のフォームで会員登録しましょう！<br>
+            
     .l-right-content
         .form
             = form_with(model: @user, url: registrations_path, method: :post, id: 'registrationform') do |f|

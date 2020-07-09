@@ -1,5 +1,5 @@
 current directory: /home/ec2-user/environment/tweet_app/vendor/bundle/ruby/2.6.0/gems/puma-3.12.6/ext/puma_http11
-/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20200601-23939-1alohvh.rb extconf.rb
+/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20200708-21001-p8i6y3.rb extconf.rb
 checking for BIO_read() in -lcrypto... yes
 checking for SSL_CTX_new() in -lssl... yes
 checking for openssl/bio.h... yes
@@ -41,4 +41,4 @@ linking shared-object puma/puma_http11.so
 
 current directory: /home/ec2-user/environment/tweet_app/vendor/bundle/ruby/2.6.0/gems/puma-3.12.6/ext/puma_http11
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20200601-23939-1bt49fh/puma
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20200708-21001-nxzat9/puma

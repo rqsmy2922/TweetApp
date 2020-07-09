@@ -1,5 +1,5 @@
 current directory: /home/ec2-user/environment/tweet_app/vendor/bundle/ruby/2.6.0/gems/hpricot-0.8.6/ext/hpricot_scan
-/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20200404-12587-11mi2le.rb extconf.rb
+/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20200708-21001-6hldyo.rb extconf.rb
 checking for main() in -lc... yes
 creating Makefile
 
@@ -217,4 +217,4 @@ linking shared-object hpricot_scan.so
 
 current directory: /home/ec2-user/environment/tweet_app/vendor/bundle/ruby/2.6.0/gems/hpricot-0.8.6/ext/hpricot_scan
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 hpricot_scan.so ./.gem.20200404-12587-1n9ganq
+/usr/bin/install -c -m 0755 hpricot_scan.so ./.gem.20200708-21001-1nvjr3c
