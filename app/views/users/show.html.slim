@@ -7,7 +7,7 @@
         - if @user.icon.present?
           = image_tag @user.icon.url
         - else
-          = image_tag "icon.jpeg"
+          = image_tag "icon.jpg"
       .user-main-space
         .user-top-space
           .user-name-space
@@ -93,7 +93,7 @@
                       = image_tag @user.icon.url
                   - else
                     = link_to user_path(t.user.name)
-                      = image_tag asset_path("icon.jpeg")
+                      = image_tag asset_path("icon.jpg")
                 .main-space
                   .top-space
                     .name-space
@@ -140,7 +140,7 @@
                       = image_tag f.icon.url
                   - else
                     = link_to user_path(f.name)
-                      = image_tag asset_path("icon.jpeg")
+                      = image_tag asset_path("icon.jpg")
                 .main-space
                   .top-space
                     .name-space
@@ -170,7 +170,7 @@
                       = image_tag f.icon.url
                   - else
                     = link_to user_path(f.name)
-                      = image_tag asset_path("icon.jpeg")
+                      = image_tag asset_path("icon.jpg")
                 .main-space
                   .top-space
                     .name-space
@@ -201,7 +201,7 @@
                       = image_tag user.icon.url
                   - else
                     = link_to user_path(user.name)
-                      = image_tag asset_path("icon.jpeg")
+                      = image_tag asset_path("icon.jpg")
                 .main-space
                   .top-space
                     .name-space
