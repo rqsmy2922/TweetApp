@@ -9,7 +9,7 @@
         - if current_user.icon.present?
           = image_tag current_user.icon.url, id: :icon_preview, onClick:"$('#icon').click()"
         - else
-          = image_tag "icon.jpeg", id: :icon_preview, onClick:"$('#icon').click()"
+          = = image_tag asset_path("icon.jpeg"), id: :icon_preview, onClick:"$('#icon').click()"
         = f.file_field :icon, id: :icon
       .input-field
         = f.label :name, "ユーザーID(4~24文字)"

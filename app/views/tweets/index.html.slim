@@ -71,7 +71,7 @@
                         = image_tag t.user.icon.url
                     - else
                       = link_to user_path(t.user.name)
-                        = image_tag "icon.jpeg"
+                        = image_tag asset_path("icon.jpeg")
                   .main-space
                     .top-space
                       .name-space
@@ -120,7 +120,7 @@
                           = image_tag f.icon.url
                       - else
                         = link_to user_path(f.name)
-                          = image_tag "icon.jpeg"
+                          = image_tag asset_path("icon.jpeg")
                     .main-space  
                       .top-space
                         .name-space
